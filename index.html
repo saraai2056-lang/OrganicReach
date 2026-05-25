@@ -3,54 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara AI — Organic Masterclass</title>
+    <title>Sara AI | Growth Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-    
     <style>
-        :root { --neon: #00D97E; --dark: #030D07; --card-bg: rgba(8, 24, 14, 0.98); }
+        :root { --neon: #00D97E; --dark: #030D07; }
         body { background: var(--dark); color: #e0f0e8; font-family: 'Outfit', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
-        
-        .container { max-width: 450px; width: 100%; margin-top: 20px; }
+        .container { max-width: 450px; width: 100%; }
         
         .card {
-            background: var(--card-bg);
+            background: rgba(8, 24, 14, 0.98);
             border: 1px solid rgba(0, 217, 120, 0.3);
             border-radius: 28px;
             padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 217, 120, 0.1);
+            box-shadow: 0 15px 50px rgba(0, 217, 120, 0.15);
         }
 
-        .badge {
-            background: rgba(0, 217, 120, 0.1);
-            color: var(--neon);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
+        .badge { background: rgba(0, 217, 120, 0.1); color: var(--neon); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 15px; display: inline-block; }
         h1 { font-family: 'Syne', sans-serif; font-size: 38px; margin: 0; color: #fff; }
         h1 span { color: var(--neon); }
 
-        .strategy-box {
-            text-align: left;
+        /* TOOLS SECTION */
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; }
+        .tool {
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 18px;
-            padding: 20px;
-            margin: 25px 0;
-            border-left: 4px solid var(--neon);
+            border: 1px solid rgba(0, 217, 120, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .tool.locked { opacity: 0.5; filter: blur(0.5px); }
+        .lock-icon { position: absolute; top: 10px; right: 10px; font-size: 12px; color: var(--neon); font-family: 'Syne'; }
+        .tool-name { font-weight: 600; font-size: 13px; color: #fff; display: block; }
+        .tool-desc { font-size: 11px; color: #7ab893; margin-top: 4px; display: block; }
+
+        /* STATUS BANNER */
+        .status-box {
+            background: rgba(0, 217, 120, 0.05);
+            border: 1px solid rgba(0, 217, 120, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 20px;
         }
 
-        .strategy-title { color: var(--neon); font-weight: 700; font-size: 14px; margin-bottom: 10px; display: block; }
-        
-        .step { font-size: 13px; line-height: 1.6; margin-bottom: 12px; display: flex; gap: 10px; }
-        .step span { color: var(--neon); font-weight: bold; }
-
-        .btn-main {
+        .btn-follow {
             background: linear-gradient(135deg, #00D97E, #00A85E);
             color: #000;
             text-decoration: none;
@@ -60,53 +59,55 @@
             font-weight: 800;
             font-family: 'Syne', sans-serif;
             transition: 0.3s;
-            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
         }
 
-        .footer-team {
-            margin-top: 30px;
-            font-size: 11px;
-            color: #5a8a6a;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 20px;
-        }
-
-        .bots { color: var(--neon); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; }
+        .footer-team { margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 11px; color: #5a8a6a; }
+        .bots { color: var(--neon); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; margin-top: 5px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="card">
-            <div class="badge">2026 Growth Blueprint</div>
+            <span class="badge">SARA AI ORCHESTRATOR</span>
             <h1>Sara<span>AI</span></h1>
             
-            <div class="strategy-box">
-                <span class="strategy-title">3-STEP ORGANIC ORCHESTRATION</span>
-                
-                <div class="step">
-                    <span>01</span>
-                    <div><strong>The Video Hook:</strong> Post 60-second vertical videos. 2026 algorithms prioritize video "dwell time" over text.</div>
+            <div class="dashboard-grid">
+                <div class="tool locked">
+                    <span class="lock-icon">LOCKED</span>
+                    <span class="tool-name">Viral Tag Gen</span>
+                    <span class="tool-desc">Algorithm-ready tags</span>
                 </div>
-
-                <div class="step">
-                    <span>02</span>
-                    <div><strong>The "1-Hour" Rule:</strong> Reply to every comment within the first hour to trigger the Facebook "Viral Boost."</div>
+                <div class="tool locked">
+                    <span class="lock-icon">LOCKED</span>
+                    <span class="tool-name">Reach Tracker</span>
+                    <span class="tool-desc">Real-time meta data</span>
                 </div>
-
-                <div class="step">
-                    <span>03</span>
-                    <div><strong>Niche Authority:</strong> Focus on AI in the Legal sector. High-quality info for a specific group beats generic news.</div>
+                <div class="tool locked">
+                    <span class="lock-icon">LOCKED</span>
+                    <span class="tool-name">Hook Script AI</span>
+                    <span class="tool-desc">Vertical video prompts</span>
+                </div>
+                <div class="tool locked">
+                    <span class="lock-icon">LOCKED</span>
+                    <span class="tool-name">Legal Framework</span>
+                    <span class="tool-desc">AI Governance PDF</span>
                 </div>
             </div>
 
-            <p style="font-size: 13px; color: #7ab893; margin-bottom: 20px;">
-                Ready to unlock the full <strong>Legal-Tech Framework?</strong> Follow the page below:
-            </p>
+            <div class="status-box">
+                <div style="color: var(--neon); font-weight: bold; font-size: 12px; margin-bottom: 5px;">SARA AI TEAM UPDATE:</div>
+                <p id="status-text" style="font-size: 12px; margin: 0; line-height: 1.4;">
+                    <strong>Atlas:</strong> Dashboard is currently <strong>Offline</strong>. Follow the page to initiate the verification sequence.
+                </p>
+            </div>
 
-            <a href="https://www.facebook.com/saraai2056" target="_blank" class="btn-main">
-                JOIN @saraai2056
-            </a>
+            <button class="btn-follow" onclick="startSequence()">
+                INITIATE VERIFICATION
+            </button>
 
             <div class="footer-team">
                 Orchestrated by the Sara AI Team
@@ -115,5 +116,21 @@
         </div>
     </div>
 
+    <script>
+        function startSequence() {
+            const btn = document.querySelector('.btn-follow');
+            const text = document.getElementById('status-text');
+            
+            btn.innerHTML = "OPENING FACEBOOK...";
+            text.innerHTML = "<strong>Nova:</strong> Opening secure link. Follow the page, then return here to unlock tools.";
+            
+            setTimeout(() => {
+                window.open('https://www.facebook.com/saraai2056', '_blank');
+                btn.innerHTML = "VERIFYING FOLLOW...";
+                btn.style.background = "#fff";
+                btn.style.color = "#000";
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
