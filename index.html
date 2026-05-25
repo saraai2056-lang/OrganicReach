@@ -11,41 +11,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
 
   <style>
-    /* Integrated CSS - No separate file needed */
     body { background: #030D07; font-family: 'Outfit', sans-serif; color: #e0f0e8; margin: 0; overflow-x: hidden; }
-    .page { padding: 40px 16px; max-width: 450px; margin: 0 auto; }
+    .page { padding: 40px 16px; max-width: 450px; margin: 0 auto; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
     
     .card { 
         background: rgba(8, 24, 14, 0.95); 
         border: 1px solid rgba(0, 217, 120, 0.2); 
         border-radius: 18px; 
-        padding: 24px; 
-        margin-bottom: 20px; 
+        padding: 30px; 
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 40px rgba(0,217,120,0.1);
     }
 
-    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; color: #fff; margin: 0; }
+    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 36px; color: #fff; margin: 0; }
     h1 span { color: #00D97E; }
     
     .btn-primary { 
         background: linear-gradient(135deg, #00D97E, #00A85E); 
-        border: none; border-radius: 12px; padding: 14px; 
+        border: none; border-radius: 12px; padding: 16px; 
         color: #000; font-weight: 700; width: 100%; 
         cursor: pointer; font-family: 'Syne', sans-serif; 
-        margin-top: 15px;
+        margin-top: 20px; font-size: 16px;
     }
 
-    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
     .tool-item { 
         background: rgba(255,255,255,0.03); 
         border: 1px solid rgba(0,217,120,0.1); 
         padding: 15px; border-radius: 12px; font-size: 13px; 
-        cursor: pointer;
+        cursor: pointer; transition: 0.3s;
     }
-    .tool-item:hover { border-color: #00D97E; }
+    .tool-item:hover { border-color: #00D97E; background: rgba(0,217,120,0.05); }
     
-    .badge { background: rgba(0, 217, 120, 0.1); color: #00D97E; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+    .badge { background: rgba(0, 217, 120, 0.1); color: #00D97E; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+    
+    .team-box { margin-top: 20px; font-size: 12px; color: #7ab893; border-top: 1px solid rgba(0,217,120,0.1); paddingTop: 15px; }
+    .bot-names { color: #00D97E; font-weight: 600; letter-spacing: 1px; }
   </style>
 </head>
 <body>
@@ -59,17 +60,21 @@
     const [view, setView] = useState('home');
 
     const HomePage = () => (
-      <div className="page">
+      <div className="page fade-up">
         <div className="card">
-          <span className="badge">SARA AI TEAM</span>
+          <span className="badge">OFFICIAL PORTAL</span>
           <h1>Sara<span>AI</span></h1>
-          <p style={{color:'#7ab893', fontSize:'14px', marginTop:'8px'}}>Free Organic Growth Tools</p>
+          <p style={{color:'#7ab893', fontSize:'15px', marginTop:'8px'}}>Organic Growth & Legal Tech</p>
           
           <div className="tool-grid">
             <div className="tool-item" onClick={() => setView('tips')}>📈 Growth Tips</div>
             <div className="tool-item" onClick={() => setView('hash')}>🏷️ Hashtags</div>
             <div className="tool-item" onClick={() => setView('ideas')}>💡 Post Ideas</div>
             <div className="tool-item" onClick={() => setView('fb')}>👤 Follow Us</div>
+          </div>
+
+          <div className="team-box">
+            Managed by <span className="bot-names">ATLAS • NOVA • SAGE</span>
           </div>
         </div>
       </div>
@@ -78,9 +83,14 @@
     const TipsPage = () => (
       <div className="page">
         <div className="card">
-          <h3>Growth Tips</h3>
-          <p style={{fontSize:'14px', textAlign:'left'}}>1. Post videos instead of images.<br/>2. Reply to comments in 1 hour.<br/>3. Use 3-5 niche hashtags.</p>
-          <button className="btn-primary" onClick={() => setView('home')}>Back Home</button>
+          <h3 style={{color: '#00D97E'}}>Organic Growth Tips</h3>
+          <ul style={{textAlign:'left', fontSize:'14px', lineHeight:'1.8', color:'#b0d8c0'}}>
+            <li>Post 3-5 times weekly for consistency.</li>
+            <li>Reply to all comments within 60 minutes.</li>
+            <li>Use 3 niche hashtags to avoid spam filters.</li>
+            <li>Facebook Live boosts reach by 6x.</li>
+          </ul>
+          <button className="btn-primary" onClick={() => setView('home')}>Back to Tools</button>
         </div>
       </div>
     );
@@ -88,13 +98,16 @@
     const FacebookPage = () => (
       <div className="page">
         <div className="card">
+          <div style={{fontSize:'40px', marginBottom:'15px'}}>🌱</div>
           <h3>Join the Community</h3>
-          <p>Follow our official Facebook page for daily AI framework updates.</p>
-          <button className="btn-primary" onClick={() => window.open('https://www.facebook.com/YOUR_PAGE_HERE', '_blank')}>
-            Open Facebook Page
+          <p style={{fontSize:'14px', color:'#7ab893'}}>To unlock the AI Legal-Tech Framework, join our official page.</p>
+          
+          <button className="btn-primary" onClick={() => window.open('https://www.facebook.com/share/1Kvrsu4koH/', '_blank')}>
+            Follow Sara AI Page
           </button>
-          <button style={{background:'none', border:'none', color:'#5a8a6a', marginTop:'15px', cursor:'pointer'}} onClick={() => setView('home')}>
-            Return to Tools
+          
+          <button style={{background:'none', border:'none', color:'#5a8a6a', marginTop:'20px', cursor:'pointer', fontSize:'13px'}} onClick={() => setView('home')}>
+            ← Return to Dashboard
           </button>
         </div>
       </div>
