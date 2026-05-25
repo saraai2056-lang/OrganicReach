@@ -1,134 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <title>Sara AI — Organic Growth Hub</title>
-  
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara AI — Organic Growth Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: #030D07;
+            color: #e0f0e8;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-  <style>
-    body { background: #030D07; font-family: 'Outfit', sans-serif; color: #e0f0e8; margin: 0; overflow-x: hidden; }
-    .page { padding: 40px 16px; max-width: 450px; margin: 0 auto; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
-    
-    .card { 
-        background: rgba(8, 24, 14, 0.95); 
-        border: 1px solid rgba(0, 217, 120, 0.25); 
-        border-radius: 22px; 
-        padding: 35px 25px; 
-        text-align: center;
-        box-shadow: 0 15px 50px rgba(0,217,120,0.15);
-    }
+        .card {
+            background: rgba(8, 24, 14, 0.95);
+            border: 1px solid rgba(0, 217, 120, 0.3);
+            border-radius: 24px;
+            padding: 40px 20px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 217, 120, 0.15);
+        }
 
-    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 38px; color: #fff; margin: 0; letter-spacing: -1px; }
-    h1 span { color: #00D97E; }
-    
-    .btn-primary { 
-        background: linear-gradient(135deg, #00D97E, #00A85E); 
-        border: none; border-radius: 14px; padding: 18px; 
-        color: #000; font-weight: 700; width: 100%; 
-        cursor: pointer; font-family: 'Syne', sans-serif; 
-        margin-top: 20px; font-size: 16px;
-        box-shadow: 0 4px 15px rgba(0, 217, 120, 0.3);
-    }
+        .badge {
+            background: rgba(0, 217, 120, 0.1);
+            color: #00D97E;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
 
-    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
-    .tool-item { 
-        background: rgba(255,255,255,0.03); 
-        border: 1px solid rgba(0,217,120,0.1); 
-        padding: 18px 10px; border-radius: 15px; font-size: 12px; 
-        cursor: pointer; transition: 0.3s;
-    }
-    .tool-item:hover { border-color: #00D97E; background: rgba(0,217,120,0.08); }
-    
-    .badge { background: rgba(0, 217, 120, 0.1); color: #00D97E; padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 15px; border: 1px solid rgba(0,217,120,0.2); }
-    
-    .team-box { margin-top: 25px; font-size: 11px; color: #5a8a6a; border-top: 1px solid rgba(0,217,120,0.1); padding-top: 20px; }
-    .bot-names { color: #00D97E; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
-  </style>
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            margin: 0;
+            color: #fff;
+        }
+
+        h1 span { color: #00D97E; }
+
+        .subtitle {
+            color: #7ab893;
+            font-size: 15px;
+            margin: 10px 0 30px 0;
+            line-height: 1.5;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, #00D97E, #00A85E);
+            color: #000;
+            text-decoration: none;
+            display: block;
+            padding: 18px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-family: 'Syne', sans-serif;
+            margin-bottom: 15px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 217, 120, 0.3);
+        }
+
+        .btn-main:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .tool {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 217, 120, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #b0d8c0;
+        }
+
+        .footer-team {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 11px;
+            color: #5a8a6a;
+        }
+
+        .bots {
+            color: #00D97E;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 
-<div id="root"></div>
+    <div class="card">
+        <div class="badge">OFFICIAL ACCESS</div>
+        <h1>Sara<span>AI</span></h1>
+        <p class="subtitle">Orchestrating Legal Innovation &<br>Organic Growth Strategies</p>
 
-<script type="text/babel">
-  const { useState } = React;
+        <a href="https://www.facebook.com/saraai2056" target="_blank" class="btn-main">
+            FOLLOW @saraai2056
+        </a>
 
-  function App() {
-    const [view, setView] = useState('home');
-    const FB_LINK = "https://www.facebook.com/saraai2056";
-
-    const HomePage = () => (
-      <div className="page">
-        <div className="card">
-          <span className="badge">SARA AI TEAM OFFICIAL</span>
-          <h1>Sara<span>AI</span></h1>
-          <p style={{color:'#7ab893', fontSize:'14px', marginTop:'10px', lineHeight:'1.5'}}>
-            Mastering Organic Reach & <br/>AI-Driven Legal Innovation.
-          </p>
-          
-          <div className="tool-grid">
-            <div className="tool-item" onClick={() => setView('tips')}>📈 Growth Tips</div>
-            <div className="tool-item" onClick={() => setView('fb')}>👤 Follow Page</div>
-            <div className="tool-item" onClick={() => setView('hash')}>🏷️ Hashtags</div>
-            <div className="tool-item" onClick={() => setView('ideas')}>💡 Ideas</div>
-          </div>
-
-          <button className="btn-primary" onClick={() => window.open(FB_LINK, '_blank')}>
-            Unlock Framework Now
-          </button>
-
-          <div className="team-box">
-            Orchestrated by <br/><span className="bot-names">Atlas • Nova • Sage</span>
-          </div>
+        <div class="tool-grid">
+            <div class="tool">📈 Growth Tips</div>
+            <div class="tool">🏷️ Viral Tags</div>
+            <div class="tool">💡 Post Ideas</div>
+            <div class="tool">📊 Reach Calc</div>
         </div>
-      </div>
-    );
 
-    const FacebookPage = () => (
-      <div className="page">
-        <div className="card">
-          <div style={{fontSize:'45px', marginBottom:'15px'}}>🔗</div>
-          <h3 style={{fontFamily:'Syne'}}>Direct Follow</h3>
-          <p style={{fontSize:'14px', color:'#7ab893', marginBottom:'20px'}}>Click below to join <strong>@saraai2056</strong> and access our premium blueprints.</p>
-          
-          <button className="btn-primary" onClick={() => window.open(FB_LINK, '_blank')}>
-            Open @saraai2056
-          </button>
-          
-          <button style={{background:'none', border:'none', color:'#5a8a6a', marginTop:'25px', cursor:'pointer', fontSize:'13px'}} onClick={() => setView('home')}>
-            ← Back to Dashboard
-          </button>
+        <div class="footer-team">
+            Powered by the Sara AI Team
+            <span class="bots">Atlas • Nova • Sage</span>
         </div>
-      </div>
-    );
-
-    const TipsPage = () => (
-      <div className="page">
-        <div className="card">
-          <h3 style={{color: '#00D97E', fontFamily:'Syne'}}>Organic Strategy</h3>
-          <div style={{textAlign:'left', fontSize:'14px', lineHeight:'2', color:'#b0d8c0', margin:'20px 0'}}>
-            • <strong>Video First:</strong> 5x more reach than text.<br/>
-            • <strong>Engage:</strong> Reply to comments within 1hr.<br/>
-            • <strong>Timing:</strong> Post Wed/Fri at 11:00 AM.<br/>
-            • <strong>Hashtags:</strong> Use 3 specific, not 30 random.
-          </div>
-          <button className="btn-primary" onClick={() => setView('home')}>Got it!</button>
-        </div>
-      </div>
-    );
-
-    if (view === 'tips') return <TipsPage />;
-    if (view === 'fb') return <FacebookPage />;
-    return <HomePage />;
-  }
-
-  const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(<App />);
-</script>
+    </div>
 
 </body>
 </html>
