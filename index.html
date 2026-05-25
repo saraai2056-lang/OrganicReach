@@ -3,115 +3,111 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <title>Sara AI — Organic Growth Portal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+  <title>Sara AI — Organic Growth Tool</title>
   
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+
   <style>
-    /* 1. CORE DESIGN - Dark Tech Theme */
-    body {
-      background: #030D07; /* Dark background from your screenshot */
-      color: #e0f0e8;
-      font-family: 'Outfit', sans-serif;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+    /* Integrated CSS - No separate file needed */
+    body { background: #030D07; font-family: 'Outfit', sans-serif; color: #e0f0e8; margin: 0; overflow-x: hidden; }
+    .page { padding: 40px 16px; max-width: 450px; margin: 0 auto; }
+    
+    .card { 
+        background: rgba(8, 24, 14, 0.95); 
+        border: 1px solid rgba(0, 217, 120, 0.2); 
+        border-radius: 18px; 
+        padding: 24px; 
+        margin-bottom: 20px; 
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    .container { width: 100%; max-width: 420px; text-align: center; }
-
-    /* 2. THE WORKABLE CARD */
-    .card {
-      background: rgba(8, 24, 14, 0.95); /* Deep green/black card */
-      border: 1px solid rgba(0, 217, 120, 0.2);
-      border-radius: 20px;
-      padding: 30px 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; color: #fff; margin: 0; }
+    h1 span { color: #00D97E; }
+    
+    .btn-primary { 
+        background: linear-gradient(135deg, #00D97E, #00A85E); 
+        border: none; border-radius: 12px; padding: 14px; 
+        color: #000; font-weight: 700; width: 100%; 
+        cursor: pointer; font-family: 'Syne', sans-serif; 
+        margin-top: 15px;
     }
 
-    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; margin: 0; color: #fff; }
-    h1 span { color: #00D97E; } /* Neon Green Accent */
-
-    .subtitle { color: #7ab893; font-size: 14px; margin-bottom: 25px; }
-
-    .badge {
-      background: rgba(0, 217, 120, 0.1);
-      color: #00D97E;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 15px;
-      border: 1px solid rgba(0, 217, 120, 0.2);
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .tool-item { 
+        background: rgba(255,255,255,0.03); 
+        border: 1px solid rgba(0,217,120,0.1); 
+        padding: 15px; border-radius: 12px; font-size: 13px; 
+        cursor: pointer;
     }
-
-    /* 3. FACEBOOK PLUGIN BOX */
-    .follow-box {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
-      padding: 15px;
-      margin: 20px 0;
-      border: 1px solid rgba(255,255,255,0.05);
-      min-height: 150px;
-    }
-
-    .fb-prompt { font-size: 13px; margin-bottom: 12px; color: #e0f0e8; }
-
-    /* 4. BUTTON DESIGN */
-    .btn-primary {
-      background: linear-gradient(135deg, #00D97E, #00A85E);
-      color: #000;
-      border: none;
-      width: 100%;
-      padding: 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-      font-family: 'Syne', sans-serif;
-      transition: transform 0.2s ease;
-    }
-
-    .btn-primary:active { transform: scale(0.98); }
+    .tool-item:hover { border-color: #00D97E; }
+    
+    .badge { background: rgba(0, 217, 120, 0.1); color: #00D97E; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
   </style>
 </head>
 <body>
 
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+<div id="root"></div>
 
-<div class="container">
-    <h1>Sara<span>AI</span></h1>
-    <p class="subtitle">Legal Tech & AI Governance</p>
+<script type="text/babel">
+  const { useState } = React;
 
-    <div class="card">
-        <span class="badge">ORGANIC GROWTH TOOL</span>
-        <h3>AI Legal-Tech Framework</h3>
-        <p style="font-size: 14px; color: #7ab893; line-height: 1.6;">
-          Join the community to unlock premium blueprints and orchestration logic.
-        </p>
+  function App() {
+    const [view, setView] = useState('home');
 
-        <div class="follow-box">
-            <p class="fb-prompt">Step 1: Follow the <strong>Sara AI Team</strong></p>
-            
-            <div class="fb-page" 
-                data-href="https://www.facebook.com/facebook" 
-                data-tabs="timeline" 
-                data-small-header="true" 
-                data-adapt-container-width="true" 
-                data-hide-cover="false" 
-                data-show-facepile="true">
-            </div>
+    const HomePage = () => (
+      <div className="page">
+        <div className="card">
+          <span className="badge">SARA AI TEAM</span>
+          <h1>Sara<span>AI</span></h1>
+          <p style={{color:'#7ab893', fontSize:'14px', marginTop:'8px'}}>Free Organic Growth Tools</p>
+          
+          <div className="tool-grid">
+            <div className="tool-item" onClick={() => setView('tips')}>📈 Growth Tips</div>
+            <div className="tool-item" onClick={() => setView('hash')}>🏷️ Hashtags</div>
+            <div className="tool-item" onClick={() => setView('ideas')}>💡 Post Ideas</div>
+            <div className="tool-item" onClick={() => setView('fb')}>👤 Follow Us</div>
+          </div>
         </div>
+      </div>
+    );
 
-        <button class="btn-primary" onclick="alert('Access Unlocked! Make sure you are following the page to receive the framework in your Facebook feed.')">
-            Access Framework Now
-        </button>
-    </div>
-</div>
+    const TipsPage = () => (
+      <div className="page">
+        <div className="card">
+          <h3>Growth Tips</h3>
+          <p style={{fontSize:'14px', textAlign:'left'}}>1. Post videos instead of images.<br/>2. Reply to comments in 1 hour.<br/>3. Use 3-5 niche hashtags.</p>
+          <button className="btn-primary" onClick={() => setView('home')}>Back Home</button>
+        </div>
+      </div>
+    );
+
+    const FacebookPage = () => (
+      <div className="page">
+        <div className="card">
+          <h3>Join the Community</h3>
+          <p>Follow our official Facebook page for daily AI framework updates.</p>
+          <button className="btn-primary" onClick={() => window.open('https://www.facebook.com/YOUR_PAGE_HERE', '_blank')}>
+            Open Facebook Page
+          </button>
+          <button style={{background:'none', border:'none', color:'#5a8a6a', marginTop:'15px', cursor:'pointer'}} onClick={() => setView('home')}>
+            Return to Tools
+          </button>
+        </div>
+      </div>
+    );
+
+    if (view === 'tips') return <TipsPage />;
+    if (view === 'fb') return <FacebookPage />;
+    return <HomePage />;
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<App />);
+</script>
 
 </body>
 </html>
