@@ -1,0 +1,17 @@
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    .card {
+        padding: 15px; /* Smaller padding to save space */
+    }
+
+    /* This prevents the Facebook plugin from stretching the screen */
+    .fb-page {
+        width: 100% !important;
+        overflow: hidden;
+    }
+}
