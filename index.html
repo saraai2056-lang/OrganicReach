@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara AI | Utility Dashboard</title>
+    <title>Sara AI | Global Growth Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root { --neon: #00D97E; --dark: #030D07; }
@@ -23,10 +23,15 @@
         h1 { font-family: 'Syne', sans-serif; font-size: 38px; margin: 0; color: #fff; }
         h1 span { color: var(--neon); }
 
-        /* THE UTILITY AREA */
+        /* REGION SELECTOR (New) */
+        .region-selector { display: none; gap: 8px; margin-bottom: 15px; justify-content: center; }
+        .region-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
+        .region-btn.active { border-color: var(--neon); color: var(--neon); background: rgba(0,217,120,0.05); }
+
+        /* DISPLAY AREA */
         #display-area {
-            margin: 25px 0;
-            min-height: 200px;
+            margin: 15px 0;
+            min-height: 180px;
             background: rgba(255,255,255,0.02);
             border-radius: 18px;
             padding: 20px;
@@ -35,10 +40,8 @@
         }
 
         .locked-msg { text-align: center; color: #7ab893; padding-top: 40px; }
-        
         .result-title { color: var(--neon); font-weight: bold; font-size: 14px; margin-bottom: 10px; display: block; }
-        .result-text { font-size: 13px; line-height: 1.6; color: #fff; }
-        .copy-hint { font-size: 10px; color: #5a8a6a; margin-top: 10px; display: block; }
+        .result-text { font-size: 13px; line-height: 1.6; color: #fff; white-space: pre-line; }
 
         .btn-action {
             background: linear-gradient(135deg, #00D97E, #00A85E);
@@ -54,8 +57,8 @@
             cursor: pointer;
         }
 
-        .tool-nav { display: flex; gap: 8px; margin-bottom: 15px; display: none; }
-        .nav-btn { background: rgba(0,217,120,0.1); border: 1px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 10px; font-size: 11px; cursor: pointer; flex: 1; }
+        .tool-nav { display: none; gap: 8px; margin-bottom: 10px; }
+        .nav-btn { background: rgba(0,217,120,0.1); border: 1px solid var(--neon); color: var(--neon); padding: 10px; border-radius: 12px; font-size: 11px; cursor: pointer; flex: 1; font-weight: 600; }
 
         .footer-team { margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 11px; color: #5a8a6a; }
         .bots { color: var(--neon); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; margin-top: 5px; }
@@ -65,61 +68,84 @@
 
     <div class="container">
         <div class="card">
-            <span class="badge" id="main-badge">SARA AI: SECURE NODE</span>
+            <span class="badge" id="main-badge">GLOBAL LEGAL-TECH NODE</span>
             <h1>Sara<span>AI</span></h1>
             
+            <div class="region-selector" id="region-bar">
+                <button class="region-btn active" onclick="setRegion('UK')">🇬🇧 UK</button>
+                <button class="region-btn" onclick="setRegion('USA')">🇺🇸 USA</button>
+                <button class="region-btn" onclick="setRegion('IND')">🇮🇳 India</button>
+            </div>
+
             <div id="display-area">
                 <div id="content-screen" class="locked-msg">
-                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
-                    <strong>Atlas:</strong> Data Encrypted.<br>
-                    Follow the page to receive the 2026 Growth Prompt.
+                    <div style="font-size: 30px; margin-bottom: 10px;">🌎</div>
+                    <strong>Atlas:</strong> Regional Data Encrypted.<br>
+                    Follow to unlock international growth nodes.
                 </div>
             </div>
 
             <div class="tool-nav" id="nav">
                 <button class="nav-btn" onclick="showTags()">Viral Tags</button>
-                <button class="nav-btn" onclick="showHook()">Video Hook</button>
-                <button class="nav-btn" onclick="showStrategy()">Strategy</button>
+                <button class="nav-btn" onclick="showStrategy()">Market Strategy</button>
             </div>
 
             <button id="main-btn" class="btn-action" onclick="unlockTool()">
-                FOLLOW TO UNLOCK UTILITY
+                UNLOCK GLOBAL DASHBOARD
             </button>
 
             <div class="footer-team">
-                Verified by the Sara AI Team
+                Orchestrated by the Sara AI Team
                 <span class="bots">Atlas • Nova • Sage</span>
             </div>
         </div>
     </div>
 
     <script>
+        let currentRegion = 'UK';
+        const data = {
+            UK: {
+                tags: "#UKLaw #LondonLawyers #SolicitorsOfUK #LegalTechUK #SaraAI #UKBusiness #LawInLondon",
+                strategy: "• Peak Posting: 8:00 AM & 5:00 PM GMT.\n• Focus: GDPR Compliance & AI Regulation updates.\n• Engagement: Tag UK Law Societies."
+            },
+            USA: {
+                tags: "#USLaw #AttorneyLife #LegalInnovation #AmericanBar #LegalTechUSA #LawFirmGrowth",
+                strategy: "• Peak Posting: 12:00 PM EST (Lunch Break).\n• Focus: Efficiency & Billable Hours AI solutions.\n• Engagement: Use 'Thought Leadership' LinkedIn-style tone."
+            },
+            IND: {
+                tags: "#IndianLawyers #SupremeCourtIndia #LegalTechIndia #LawStudentsIndia #DigitalIndia #LegalInnovation",
+                strategy: "• Peak Posting: 10:00 AM & 9:00 PM IST.\n• Focus: Court Digitization & Accessibility.\n• Engagement: Respond to legal queries in comments."
+            }
+        };
+
         function unlockTool() {
             window.open('https://www.facebook.com/saraai2056', '_blank');
-            
-            // UI Transformation
             document.getElementById('nav').style.display = 'flex';
+            document.getElementById('region-bar').style.display = 'flex';
             document.getElementById('main-btn').style.display = 'none';
-            document.getElementById('main-badge').innerHTML = "SYSTEM: ONLINE";
+            document.getElementById('main-badge').innerHTML = "STATUS: GLOBAL NODE ACTIVE";
             showStrategy();
         }
 
-        function showTags() {
-            render("Viral Tag Set", "#LawTech #LegalAI #SaraAI #OrganicGrowth2026 #FutureOfLaw #PakistanLawyers");
+        function setRegion(reg) {
+            currentRegion = reg;
+            document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            showStrategy(); // Update view
         }
 
-        function showHook() {
-            render("AI Video Hook Script", "Nova recommends: 'Did you know 90% of lawyers waste 5 hours a week on research? Here is the AI prompt that solves it...' (Use this script for Reels)");
+        function showTags() {
+            render(`${currentRegion} Viral Tags`, data[currentRegion].tags);
         }
 
         function showStrategy() {
-            render("Sage's Growth Logic", "1. Post at 11:00 AM PKT.<br>2. Use the 'Hook-Value-CTA' structure.<br>3. Engage with 5 similar pages before you post.");
+            render(`${currentRegion} Market Strategy`, data[currentRegion].strategy);
         }
 
         function render(title, text) {
             const screen = document.getElementById('content-screen');
             screen.classList.remove('locked-msg');
-            screen.innerHTML = `<span class="result-title">${title}</span><div class="result-text">${text}</div><span class="copy-hint">Copy this data to your Facebook Creator Studio.</span>`;
+            screen.innerHTML = `<span class="result-title">${title}</span><div class="result-text">${text}</div>`;
         }
     </script>
 </body>
