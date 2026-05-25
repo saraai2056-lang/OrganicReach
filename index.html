@@ -1,157 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara AI | Global Strategy Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root { --neon: #00D97E; --dark: #030D07; }
-        body { background: var(--dark); color: #e0f0e8; font-family: 'Outfit', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
-        .container { max-width: 480px; width: 100%; }
-        
-        .card {
-            background: rgba(8, 24, 14, 0.98);
-            border: 1px solid rgba(0, 217, 120, 0.3);
-            border-radius: 28px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 217, 120, 0.15);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sara AI | Real Growth Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#00FF8C;--g2:#00C96B;--g3:#009950;
+  --bg:#030C06;--card:#071209;--card2:#0a1a0e;
+  --border:rgba(0,255,140,0.15);--border2:rgba(0,255,140,0.08);
+  --text:#d0eedd;--muted:#4a7a5a;--dim:#2a4a35;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden}
 
-        .badge { background: rgba(0, 217, 120, 0.1); color: var(--neon); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 15px; display: inline-block; border: 1px solid rgba(0,217,120,0.2); }
-        h1 { font-family: 'Syne', sans-serif; font-size: 38px; margin: 0; color: #fff; }
-        h1 span { color: var(--neon); }
+/* BG */
+body::before{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,255,140,0.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,255,140,0.03) 1px,transparent 1px);
+  background-size:36px 36px;z-index:0;pointer-events:none}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none}
+.orb1{width:320px;height:320px;background:rgba(0,255,140,0.06);top:-60px;right:-60px}
+.orb2{width:280px;height:280px;background:rgba(0,180,90,0.04);bottom:5%;left:-80px}
 
-        .region-selector { display: none; gap: 6px; margin: 20px 0; justify-content: center; flex-wrap: wrap; }
-        .region-btn { background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #888; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-size: 11px; transition: 0.3s; }
-        .region-btn.active { border-color: var(--neon); color: var(--neon); background: rgba(0,217,120,0.1); }
+/* LAYOUT */
+.page{position:relative;z-index:1;max-width:460px;margin:0 auto;padding:16px 14px 60px}
 
-        #display-area {
-            margin: 15px 0;
-            min-height: 220px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 22px;
-            padding: 25px;
-            border: 1px dashed rgba(0, 217, 120, 0.2);
-            text-align: left;
-        }
+/* TOP NAV */
+.topnav{display:flex;align-items:center;justify-content:space-between;padding:10px 0 20px}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px}
+.nav-logo em{color:var(--g);font-style:normal}
+.live-badge{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;
+  color:var(--g);background:rgba(0,255,140,0.08);border:1px solid var(--border);
+  padding:5px 10px;border-radius:20px;letter-spacing:1px}
+.dot{width:7px;height:7px;background:var(--g);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,140,0.5)}50%{box-shadow:0 0 0 5px rgba(0,255,140,0)}}
 
-        .locked-msg { text-align: center; color: #7ab893; padding-top: 50px; }
-        .result-title { color: var(--neon); font-weight: bold; font-size: 14px; margin-bottom: 12px; display: block; text-transform: uppercase; letter-spacing: 1px; }
-        .result-text { font-size: 13px; line-height: 1.7; color: #fff; white-space: pre-line; }
+/* HERO */
+.hero{text-align:center;padding:10px 0 24px}
+.hero-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:#fff;letter-spacing:2px}
+.hero h1 em{color:var(--g);font-style:normal;text-shadow:0 0 40px rgba(0,255,140,0.35)}
+.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6;max-width:300px;margin-left:auto;margin-right:auto}
 
-        .btn-action {
-            background: linear-gradient(135deg, #00D97E, #00A85E);
-            color: #000;
-            text-decoration: none;
-            display: block;
-            padding: 18px;
-            border-radius: 16px;
-            font-weight: 800;
-            font-family: 'Syne', sans-serif;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 217, 120, 0.3);
-        }
+/* REGIONS */
+.regions{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:24px}
+.rtag{font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;
+  border:1px solid var(--border2);background:rgba(0,255,140,0.04);color:#7acb97;cursor:pointer;transition:all 0.2s}
+.rtag.on{background:rgba(0,255,140,0.1);border-color:rgba(0,255,140,0.35);color:var(--g)}
 
-        .tool-nav { display: none; gap: 10px; margin-top: 15px; }
-        .nav-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,120,0.3); color: #fff; padding: 12px; border-radius: 12px; font-size: 11px; cursor: pointer; flex: 1; font-weight: 600; transition: 0.2s; }
-        .nav-btn:hover { background: var(--neon); color: #000; }
+/* SECTION TITLE */
+.sec{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);
+  margin:28px 0 12px;display:flex;align-items:center;gap:8px}
+.sec::after{content:'';flex:1;height:1px;background:var(--border2)}
 
-        .footer-team { margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 11px; color: #5a8a6a; }
-        .bots { color: var(--neon); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; margin-top: 5px; }
-    </style>
+/* TOOL CARD */
+.tcard{background:var(--card);border:1px solid var(--border2);border-radius:20px;
+  padding:18px;margin-bottom:12px;transition:border-color 0.3s}
+.tcard:focus-within{border-color:var(--border)}
+.tcard-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.tcard-icon{width:40px;height:40px;border-radius:12px;background:rgba(0,255,140,0.08);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.tcard-title{font-weight:700;font-size:14px;color:#fff}
+.tcard-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+/* INPUTS */
+.field-row{display:flex;gap:8px;margin-bottom:10px}
+.inp{flex:1;background:rgba(0,0,0,0.3);border:1px solid var(--border2);border-radius:12px;
+  padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;
+  transition:border-color 0.2s;width:100%}
+.inp:focus{border-color:rgba(0,255,140,0.4)}
+.inp::placeholder{color:var(--dim)}
+select.inp{cursor:pointer}
+
+/* RUN BUTTON */
+.run-btn{background:linear-gradient(135deg,var(--g),var(--g2));color:#030C06;
+  border:none;border-radius:12px;padding:12px 18px;font-family:'DM Sans',sans-serif;
+  font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;
+  transition:opacity 0.2s,transform 0.15s;flex-shrink:0}
+.run-btn:active{transform:scale(0.96)}
+.run-btn:disabled{opacity:0.5;cursor:not-allowed}
+
+/* OUTPUT */
+.output{background:rgba(0,0,0,0.25);border:1px solid var(--border2);border-radius:14px;
+  padding:14px;font-size:12px;line-height:1.75;color:#b0d8c0;min-height:60px;
+  display:none;position:relative;white-space:pre-wrap;word-break:break-word}
+.output.show{display:block}
+.output.loading{display:flex;align-items:center;gap:6px;color:var(--muted)}
+.copy-btn{position:absolute;top:8px;right:8px;background:rgba(0,255,140,0.1);
+  border:1px solid var(--border);color:var(--g);border-radius:8px;padding:4px 8px;
+  font-size:10px;font-weight:700;cursor:pointer;transition:background 0.2s}
+.copy-btn:hover{background:rgba(0,255,140,0.2)}
+
+/* LOADER DOTS */
+.dots span{width:6px;height:6px;background:var(--g);border-radius:50%;display:inline-block;
+  animation:blink 1.2s infinite}
+.dots span:nth-child(2){animation-delay:.2s}
+.dots span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.2;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+
+/* TIPS SECTION */
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.tip-box{background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:14px;
+  cursor:pointer;transition:border-color 0.2s,background 0.2s}
+.tip-box:hover{border-color:var(--border);background:var(--card2)}
+.tip-box.active{border-color:rgba(0,255,140,0.4);background:rgba(0,255,140,0.04)}
+.tip-icon{font-size:22px;margin-bottom:6px}
+.tip-title{font-size:12px;font-weight:700;color:#fff}
+.tip-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+.tips-content{background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:16px;display:none}
+.tips-content.show{display:block}
+.tip-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.tip-item:last-child{border-bottom:none;padding-bottom:0}
+.tip-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);line-height:1;flex-shrink:0;width:24px}
+.tip-text{font-size:12px;line-height:1.6;color:var(--text)}
+.tip-text strong{color:var(--g);font-weight:700}
+
+/* SCHEDULE SECTION */
+.schedule-card{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:18px;margin-bottom:12px}
+.sch-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.sch-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+
+/* CHECKLIST */
+.checklist{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:18px;margin-bottom:12px}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;
+  border-bottom:1px solid var(--border2);cursor:pointer}
+.check-item:last-child{border-bottom:none;padding-bottom:0}
+.chk{width:18px;height:18px;border:2px solid var(--border);border-radius:5px;flex-shrink:0;
+  margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.chk.done{background:var(--g);border-color:var(--g)}
+.chk.done::after{content:'✓';font-size:11px;color:#030C06;font-weight:900}
+.check-text{font-size:12px;line-height:1.5;color:var(--text)}
+.check-text.done{text-decoration:line-through;color:var(--muted)}
+
+/* PROGRESS METER */
+.meter{height:6px;background:rgba(0,255,140,0.08);border-radius:10px;margin-top:14px;overflow:hidden}
+.meter-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g));
+  border-radius:10px;transition:width 0.5s cubic-bezier(0.22,1,0.36,1)}
+.meter-label{font-size:10px;color:var(--muted);margin-top:6px;text-align:right}
+
+/* FOOTER */
+.footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border2)}
+.footer p{font-size:11px;color:var(--muted);line-height:1.7}
+.footer strong{color:var(--g)}
+.team{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.agent{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--g);background:rgba(0,255,140,0.06);border:1px solid var(--border);
+  padding:4px 12px;border-radius:20px}
+
+/* TOAST */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:rgba(0,255,140,0.12);border:1px solid rgba(0,255,140,0.3);
+  color:var(--g);padding:10px 20px;border-radius:30px;font-size:12px;font-weight:600;
+  z-index:999;transition:transform 0.3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="card">
-            <span class="badge" id="main-badge">SARA AI: MULTI-NODE ACTIVE</span>
-            <h1>Sara<span>AI</span></h1>
-            
-            <div class="region-selector" id="region-bar">
-                <button class="region-btn active" onclick="setRegion('UK')">🇬🇧 UK</button>
-                <button class="region-btn" onclick="setRegion('USA')">🇺🇸 USA</button>
-                <button class="region-btn" onclick="setRegion('IND')">🇮🇳 India</button>
-                <button class="region-btn" onclick="setRegion('PK')">🇵🇰 Pakistan</button>
-            </div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="toast" id="toast">✓ Copied!</div>
 
-            <div id="display-area">
-                <div id="content-screen" class="locked-msg">
-                    <div style="font-size: 35px; margin-bottom: 15px;">📡</div>
-                    <strong>Atlas:</strong> Connection Pending.<br>
-                    Follow to synchronize global growth data.
-                </div>
-            </div>
+<div class="page">
 
-            <div class="tool-nav" id="nav">
-                <button class="nav-btn" onclick="showTags()">Viral Tags</button>
-                <button class="nav-btn" onclick="showStrategy()">Growth Tips</button>
-            </div>
+  <!-- NAV -->
+  <div class="topnav">
+    <div class="nav-logo">Sara<em>AI</em></div>
+    <div class="live-badge"><span class="dot"></span>TOOLS LIVE</div>
+  </div>
 
-            <button id="main-btn" class="btn-action" onclick="unlockTool()">
-                SYNC WITH SARA AI TEAM
-            </button>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Free Organic Growth Toolkit</div>
+    <h1>Grow <em>Real</em><br>Followers</h1>
+    <p class="hero-sub">100% organic tools powered by AI. No fake followers. No bots. Just real growth for real pages.</p>
+  </div>
 
-            <div class="footer-team">
-                Orchestrated by the Sara AI Team
-                <span class="bots">Atlas • Nova • Sage</span>
-            </div>
-        </div>
+  <!-- REGIONS -->
+  <div class="regions">
+    <span class="rtag on" onclick="toggleRegion(this,'uk')">🇬🇧 UK</span>
+    <span class="rtag on" onclick="toggleRegion(this,'us')">🇺🇸 USA</span>
+    <span class="rtag on" onclick="toggleRegion(this,'pk')">🇵🇰 Pakistan</span>
+    <span class="rtag on" onclick="toggleRegion(this,'in')">🇮🇳 India</span>
+  </div>
+
+  <!-- === TOOL 1: HASHTAG GENERATOR === -->
+  <div class="sec">AI Hashtag Generator</div>
+  <div class="tcard">
+    <div class="tcard-head">
+      <div class="tcard-icon">🏷️</div>
+      <div>
+        <div class="tcard-title">Viral Hashtag Builder</div>
+        <div class="tcard-desc">Get platform-specific hashtags for your niche — real reach, real results</div>
+      </div>
     </div>
+    <div class="field-row">
+      <input class="inp" id="hash-niche" placeholder="Your niche (e.g. food, fitness, tech...)" />
+    </div>
+    <div class="field-row">
+      <select class="inp" id="hash-platform">
+        <option value="Facebook">Facebook</option>
+        <option value="Instagram">Instagram</option>
+        <option value="TikTok">TikTok</option>
+        <option value="YouTube">YouTube</option>
+      </select>
+      <select class="inp" id="hash-region">
+        <option value="UK">🇬🇧 UK</option>
+        <option value="USA">🇺🇸 USA</option>
+        <option value="Pakistan">🇵🇰 Pakistan</option>
+        <option value="India">🇮🇳 India</option>
+        <option value="Global">🌍 Global</option>
+      </select>
+      <button class="run-btn" onclick="runTool('hashtag')">Run</button>
+    </div>
+    <div class="output" id="out-hashtag"></div>
+  </div>
 
-    <script>
-        let currentRegion = 'UK';
-        const data = {
-            UK: {
-                tags: "#UKLaw #LondonSolicitors #LegalTechUK #SaraAI #LawFirmGrowth #LondonBusiness",
-                strategy: "• Peak Time: 08:30 GMT (Morning Commute).\n• Tip: Use 'LinkedIn-style' professional storytelling.\n• Focus: AI Regulations & GDPR updates."
-            },
-            USA: {
-                tags: "#USLawyer #AttorneyMarketing #LegalInnovation #LawFirmMarketing #AIforLawyers #AmericanBar",
-                strategy: "• Peak Time: 11:30 EST.\n• Tip: Focus on 'Efficiency' and 'Billable Hours' solutions.\n• Focus: Practical AI tools for small firms."
-            },
-            IND: {
-                tags: "#IndianLaw #SupremeCourtIndia #LegalTechIndia #DigitalIndia #LawyerLifeIndia #SaraAIIndia",
-                strategy: "• Peak Time: 10:15 IST & 20:30 IST.\n• Tip: Educational content for young lawyers/students works best.\n• Focus: Judicial digitization & case-law summaries."
-            },
-            PK: {
-                tags: "#PakistanLaw #LahoreHighCourt #IslamabadLawyers #LegalTechPakistan #SaraAIPK #LawyersOfPakistan",
-                strategy: "• Peak Time: 11:00 AM & 9:00 PM PKT.\n• Tip: Visual evidence and Urdu/English mixed content (Roman Urdu) gets 3x more reach.\n• Focus: High Court updates and AI research tools."
-            }
-        };
+  <!-- === TOOL 2: CONTENT IDEAS === -->
+  <div class="sec">AI Content Ideas</div>
+  <div class="tcard">
+    <div class="tcard-head">
+      <div class="tcard-icon">💡</div>
+      <div>
+        <div class="tcard-title">Content Idea Engine</div>
+        <div class="tcard-desc">7-day content calendar — posts that your audience actually wants to see</div>
+      </div>
+    </div>
+    <div class="field-row">
+      <input class="inp" id="idea-niche" placeholder="What is your page about?" />
+      <select class="inp" id="idea-region" style="max-width:120px">
+        <option value="UK">🇬🇧 UK</option>
+        <option value="USA">🇺🇸 USA</option>
+        <option value="Pakistan">🇵🇰 Pakistan</option>
+        <option value="India">🇮🇳 India</option>
+        <option value="Global">🌍 Global</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <button class="run-btn" style="width:100%;text-align:center" onclick="runTool('ideas')">Generate 7-Day Plan</button>
+    </div>
+    <div class="output" id="out-ideas"></div>
+  </div>
 
-        function unlockTool() {
-            window.open('https://www.facebook.com/saraai2056', '_blank');
-            document.getElementById('nav').style.display = 'flex';
-            document.getElementById('region-bar').style.display = 'flex';
-            document.getElementById('main-btn').style.display = 'none';
-            document.getElementById('main-badge').innerHTML = "SYSTEM STATUS: ONLINE";
-            showStrategy();
-        }
+  <!-- === TOOL 3: CAPTION WRITER === -->
+  <div class="sec">AI Caption Writer</div>
+  <div class="tcard">
+    <div class="tcard-head">
+      <div class="tcard-icon">✍️</div>
+      <div>
+        <div class="tcard-title">Caption Generator</div>
+        <div class="tcard-desc">Write scroll-stopping captions that drive comments, shares & follows</div>
+      </div>
+    </div>
+    <div class="field-row">
+      <input class="inp" id="cap-topic" placeholder="Describe your post (e.g. sunset photo, new product...)" />
+    </div>
+    <div class="field-row">
+      <select class="inp" id="cap-tone">
+        <option value="Engaging & conversational">Engaging</option>
+        <option value="Funny & witty">Funny</option>
+        <option value="Inspirational">Inspiring</option>
+        <option value="Professional">Professional</option>
+        <option value="Emotional & personal">Emotional</option>
+      </select>
+      <select class="inp" id="cap-platform">
+        <option value="Facebook">Facebook</option>
+        <option value="Instagram">Instagram</option>
+        <option value="TikTok">TikTok</option>
+      </select>
+      <button class="run-btn" onclick="runTool('caption')">Write</button>
+    </div>
+    <div class="output" id="out-caption"></div>
+  </div>
 
-        function setRegion(reg) {
-            currentRegion = reg;
-            document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            showStrategy(); 
-        }
+  <!-- === TOOL 4: BIO OPTIMIZER === -->
+  <div class="sec">AI Bio Optimizer</div>
+  <div class="tcard">
+    <div class="tcard-head">
+      <div class="tcard-icon">👤</div>
+      <div>
+        <div class="tcard-title">Profile Bio Writer</div>
+        <div class="tcard-desc">A strong bio = more follows. Let AI write one that converts visitors to followers</div>
+      </div>
+    </div>
+    <div class="field-row">
+      <input class="inp" id="bio-input" placeholder="Tell us about your page in a few words..." />
+    </div>
+    <div class="field-row">
+      <select class="inp" id="bio-platform">
+        <option value="Facebook">Facebook</option>
+        <option value="Instagram">Instagram</option>
+        <option value="TikTok">TikTok</option>
+        <option value="YouTube">YouTube</option>
+      </select>
+      <button class="run-btn" onclick="runTool('bio')">Optimize</button>
+    </div>
+    <div class="output" id="out-bio"></div>
+  </div>
 
-        function showTags() {
-            render(`${currentRegion} Viral Tags`, data[currentRegion].tags);
-        }
+  <!-- === ORGANIC GROWTH TIPS === -->
+  <div class="sec">Organic Growth Tips</div>
+  <div class="tips-grid">
+    <div class="tip-box active" onclick="showTips('posting')">
+      <div class="tip-icon">📅</div>
+      <div class="tip-title">Posting Times</div>
+      <div class="tip-sub">When to post by region</div>
+    </div>
+    <div class="tip-box" onclick="showTips('engagement')">
+      <div class="tip-icon">💬</div>
+      <div class="tip-title">Engagement</div>
+      <div class="tip-sub">Get more comments & shares</div>
+    </div>
+    <div class="tip-box" onclick="showTips('algorithm')">
+      <div class="tip-icon">📈</div>
+      <div class="tip-title">Algorithm</div>
+      <div class="tip-sub">How to beat the feed</div>
+    </div>
+    <div class="tip-box" onclick="showTips('growth')">
+      <div class="tip-icon">🚀</div>
+      <div class="tip-title">Fast Growth</div>
+      <div class="tip-sub">Proven organic tactics</div>
+    </div>
+  </div>
 
-        function showStrategy() {
-            render(`${currentRegion} Growing Strategy`, data[currentRegion].strategy);
-        }
+  <div class="tips-content show" id="tips-panel"></div>
 
-        function render(title, text) {
-            const screen = document.getElementById('content-screen');
-            screen.classList.remove('locked-msg');
-            screen.innerHTML = `<span class="result-title">${title}</span><div class="result-text">${text}</div>`;
-        }
-    </script>
+  <!-- === BEST POSTING SCHEDULE === -->
+  <div class="sec">Best Posting Schedule</div>
+  <div class="schedule-card">
+    <div class="sch-row">
+      <div>
+        <div class="sch-label">Platform</div>
+        <select class="inp" id="sch-platform" onchange="updateSchedule()">
+          <option>Facebook</option>
+          <option>Instagram</option>
+          <option>TikTok</option>
+          <option>YouTube</option>
+        </select>
+      </div>
+      <div>
+        <div class="sch-label">Region</div>
+        <select class="inp" id="sch-region" onchange="updateSchedule()">
+          <option>UK</option>
+          <option>USA</option>
+          <option>Pakistan</option>
+          <option>India</option>
+        </select>
+      </div>
+    </div>
+    <div class="output show" id="out-schedule" style="font-size:12px"></div>
+  </div>
+
+  <!-- === DAILY CHECKLIST === -->
+  <div class="sec">Daily Growth Checklist</div>
+  <div class="checklist" id="checklist">
+    <!-- injected by JS -->
+  </div>
+  <div class="meter"><div class="meter-fill" id="meter-fill" style="width:0%"></div></div>
+  <div class="meter-label" id="meter-label">0 / 8 tasks complete</div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Built by <strong>Sara AI</strong> to help creators grow honestly.<br>
+    No fake followers. No paid ads. Just <strong>real organic growth</strong>.<br>
+    Optimised for UK · USA · Pakistan · India</p>
+    <div class="team">
+      <span class="agent">Atlas</span>
+      <span class="agent">Nova</span>
+      <span class="agent">Sage</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ========== DATA ==========
+const TIPS = {
+  posting: [
+    {t:'Post at peak hours', d:'<strong>UK:</strong> 7–9am, 12–2pm, 7–9pm. <strong>USA:</strong> 9–11am, 12–3pm EST. <strong>Pakistan/India:</strong> 8–10am, 8–10pm PKT/IST. Facebook favors posts made when your audience is most active.'},
+    {t:'Post 4–5x per week', d:'Consistency beats frequency. 4–5 quality posts/week outperform 14 rushed posts. Every platform rewards regular posting.'},
+    {t:'Use Story + Feed together', d:'Post a Story first (warm up the algorithm), then your main feed post 30 minutes later. This boosts initial reach by up to 40%.'},
+    {t:'Never delete and repost', d:'Deleting a post resets all engagement data. Facebook\'s algorithm penalises this. Edit instead of delete.'},
+  ],
+  engagement: [
+    {t:'Ask a question in every post', d:'Posts with questions in the caption get <strong>2–3x more comments</strong>. End every caption with a simple question ("What do you think?", "Drop a 🔥 if you agree").'},
+    {t:'Reply within the first hour', d:'Replying to every comment in the first 60 minutes <strong>doubles your reach</strong>. Facebook/Instagram prioritise posts with fast engagement.'},
+    {t:'Use polls and quizzes', d:'Interactive content (polls, "This or That", quizzes) gets <strong>4x more shares</strong> than regular posts. Use Facebook Stories poll sticker weekly.'},
+    {t:'Engage with similar pages', d:'Comment genuine, helpful replies on 5–10 posts in your niche every day. This brings their audience to your profile for free.'},
+  ],
+  algorithm: [
+    {t:'Video beats everything', d:'Reels and short videos get <strong>3–5x more organic reach</strong> than images. Even a 30-second phone video beats a professional photo.'},
+    {t:'Send to your existing followers first', d:'Share your post to your close friends or send it to 5–10 engaged followers via DM right after posting. Early shares tell the algorithm the content is worth spreading.'},
+    {t:'Use 3–5 hashtags, not 30', d:'On Facebook, 3–5 very targeted hashtags outperform 30 generic ones. Quality > Quantity. On Instagram, 8–12 is the sweet spot.'},
+    {t:'Never buy followers', d:'Bought followers destroy your engagement rate. 1,000 real followers with 5% engagement is worth more than 100,000 fake ones with 0.1%.'},
+  ],
+  growth: [
+    {t:'Collaborate with similar-sized pages', d:'Find pages with a similar following in your niche. Do a shoutout-for-shoutout. Both pages grow without spending a penny.'},
+    {t:'Create a free resource', d:'A free PDF, checklist, or template makes people follow and share your page. Give value first — growth follows.'},
+    {t:'Pin your best post', d:'Pin your most engaging post to the top of your profile. New visitors see your best content first and are more likely to follow.'},
+    {t:'Cross-promote across platforms', d:'Post your content on all platforms (Facebook, Instagram, TikTok, YouTube Shorts). Each platform sends new traffic back to the others.'},
+  ]
+};
+
+const SCHEDULES = {
+  Facebook: {
+    UK: '📅 Best days: Wed, Thu, Fri\n⏰ Best times: 7–9am · 12–2pm · 7–9pm (GMT)\n📊 Post frequency: 4–5x per week\n💡 Tip: Facebook videos under 3 mins get highest reach in UK market',
+    USA: '📅 Best days: Wed, Thu, Fri\n⏰ Best times: 9–11am · 1–3pm EST · 7–9pm EST\n📊 Post frequency: 4–5x per week\n💡 Tip: Thursday 1–4pm EST is statistically highest engagement for US Facebook pages',
+    Pakistan: '📅 Best days: Mon, Wed, Fri, Sun\n⏰ Best times: 8–10am · 1–3pm · 8–10pm (PKT)\n📊 Post frequency: 5–6x per week\n💡 Tip: Friday afternoon (after Jumu\'ah) is extremely high-traffic in Pakistani Facebook audience',
+    India: '📅 Best days: Tue, Wed, Thu, Sat\n⏰ Best times: 8–10am · 1–2pm · 7–9pm (IST)\n📊 Post frequency: 5x per week\n💡 Tip: Sunday evenings 7–9pm IST peak for entertainment and lifestyle content in India',
+  },
+  Instagram: {
+    UK: '📅 Best days: Mon, Tue, Thu\n⏰ Best times: 6–8am · 12–1pm · 7–9pm (GMT)\n📊 Post frequency: 4–5x per week + daily Stories\n💡 Tip: Reels posted before 9am in UK get 60% more reach than afternoon posts',
+    USA: '📅 Best days: Mon, Wed, Fri\n⏰ Best times: 6–9am · 12–2pm EST\n📊 Post frequency: 4–5x per week + daily Stories\n💡 Tip: Wednesday 11am–1pm EST is the peak Instagram window for US audiences',
+    Pakistan: '📅 Best days: Mon, Wed, Fri, Sat\n⏰ Best times: 9–11am · 8–10pm (PKT)\n📊 Post frequency: 5–6x per week + daily Stories\n💡 Tip: Evening reels 8–10pm PKT dominate Instagram reach for Pakistani creators',
+    India: '📅 Best days: Wed, Thu, Fri, Sun\n⏰ Best times: 9–11am · 7–9pm (IST)\n📊 Post frequency: 5x per week + daily Stories\n💡 Tip: Sunday Reels in India get highest saves and shares in entertainment & food niches',
+  },
+  TikTok: {
+    UK: '📅 Best days: Tue, Thu, Fri\n⏰ Best times: 7–9am · 12–3pm · 7–9pm (GMT)\n📊 Post frequency: 1–3x per day\n💡 Tip: TikTok\'s "For You" page is all about watch time — hook viewers in the first 2 seconds',
+    USA: '📅 Best days: Tue, Thu, Fri\n⏰ Best times: 6–8am · 10am–12pm · 7–9pm EST\n📊 Post frequency: 1–3x per day\n💡 Tip: Posting at 7pm EST on Thursdays consistently outperforms all other US TikTok slots',
+    Pakistan: '📅 Best days: Mon–Fri · Sat evening\n⏰ Best times: 8–10am · 9–11pm (PKT)\n📊 Post frequency: 2–3x per day\n💡 Tip: Night-time TikTok (9–11pm PKT) dominates for Pakistani audience engagement',
+    India: '📅 Best days: Mon, Wed, Fri, Sat, Sun\n⏰ Best times: 7–9am · 7–10pm (IST)\n📊 Post frequency: 2–3x per day\n💡 Tip: Dance, comedy, and "jugaad" content consistently goes viral in Indian TikTok/Reels',
+  },
+  YouTube: {
+    UK: '📅 Best days: Thu, Fri, Sat\n⏰ Best times: 2–4pm · 6–8pm (GMT)\n📊 Post frequency: 1–2x per week\n💡 Tip: YouTube Shorts posted Thu/Fri consistently get highest first-48h UK views',
+    USA: '📅 Best days: Fri, Sat, Sun\n⏰ Best times: 2–4pm · 5–8pm EST\n📊 Post frequency: 1–2x per week\n💡 Tip: Friday 3–5pm EST is peak click-through time for YouTube in the US',
+    Pakistan: '📅 Best days: Fri, Sat, Sun\n⏰ Best times: 6–8pm · 9–11pm (PKT)\n📊 Post frequency: 1–2x per week\n💡 Tip: Weekend evenings are dominant for YouTube in Pakistan — educational & comedy content leads',
+    India: '📅 Best days: Sat, Sun (weekdays Thu also strong)\n⏰ Best times: 7–9pm (IST)\n📊 Post frequency: 1–2x per week\n💡 Tip: Hindi/regional language content gets 3x more organic reach in Indian YouTube',
+  }
+};
+
+const CHECKLIST_ITEMS = [
+  'Post today\'s planned content at the right time',
+  'Reply to all comments within 1 hour of posting',
+  'Engage on 5 posts in your niche (genuine comments)',
+  'Post 1 Story or short video today',
+  'Check your insights and note what\'s working',
+  'Follow / connect with 3 relevant accounts in your niche',
+  'Share your post to a relevant group or community',
+  'Plan tomorrow\'s content before you sleep'
+];
+
+// ========== CHECKLIST ==========
+let checks = Array(CHECKLIST_ITEMS.length).fill(false);
+
+function buildChecklist() {
+  const el = document.getElementById('checklist');
+  el.innerHTML = CHECKLIST_ITEMS.map((item, i) => `
+    <div class="check-item" onclick="toggleCheck(${i})">
+      <div class="chk${checks[i]?' done':''}" id="chk${i}"></div>
+      <div class="check-text${checks[i]?' done':''}" id="ct${i}">${item}</div>
+    </div>
+  `).join('');
+  updateMeter();
+}
+
+function toggleCheck(i) {
+  checks[i] = !checks[i];
+  const chk = document.getElementById('chk'+i);
+  const ct = document.getElementById('ct'+i);
+  chk.className = 'chk' + (checks[i]?' done':'');
+  ct.className = 'check-text' + (checks[i]?' done':'');
+  updateMeter();
+}
+
+function updateMeter() {
+  const done = checks.filter(Boolean).length;
+  const pct = Math.round(done / checks.length * 100);
+  document.getElementById('meter-fill').style.width = pct + '%';
+  document.getElementById('meter-label').textContent = `${done} / ${checks.length} tasks complete — ${pct}%`;
+}
+
+// ========== TIPS ==========
+function showTips(key) {
+  document.querySelectorAll('.tip-box').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  const panel = document.getElementById('tips-panel');
+  panel.className = 'tips-content show';
+  panel.innerHTML = TIPS[key].map((item,i) => `
+    <div class="tip-item">
+      <div class="tip-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="tip-text"><strong>${item.t}</strong><br>${item.d}</div>
+    </div>
+  `).join('');
+}
+
+// ========== SCHEDULE ==========
+function updateSchedule() {
+  const p = document.getElementById('sch-platform').value;
+  const r = document.getElementById('sch-region').value;
+  const el = document.getElementById('out-schedule');
+  el.textContent = SCHEDULES[p]?.[r] || 'Select a platform and region above.';
+}
+
+// ========== REGIONS ==========
+function toggleRegion(el, code) {
+  el.classList.toggle('on');
+}
+
+// ========== COPY ==========
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  });
+}
+
+// ========== AI TOOLS ==========
+async function runTool(tool) {
+  const prompts = {
+    hashtag: () => {
+      const niche = document.getElementById('hash-niche').value.trim();
+      const platform = document.getElementById('hash-platform').value;
+      const region = document.getElementById('hash-region').value;
+      if (!niche) return null;
+      return `You are a social media growth expert. Generate the best hashtags for organic reach.
+
+Platform: ${platform}
+Niche: ${niche}
+Region: ${region}
+
+Provide:
+1. 5 HIGH-REACH hashtags (millions of posts, broad awareness)
+2. 5 MID-RANGE hashtags (100k–1M posts, targeted audience)
+3. 5 NICHE hashtags (under 100k posts, highly engaged community)
+4. A one-line tip specific to using hashtags on ${platform} in ${region}
+
+Format clearly with emoji labels. Keep it concise and practical.`;
+    },
+    ideas: () => {
+      const niche = document.getElementById('idea-niche').value.trim();
+      const region = document.getElementById('idea-region').value;
+      if (!niche) return null;
+      return `You are a content strategist specialising in organic social media growth.
+
+Page niche: ${niche}
+Target region: ${region}
+
+Create a 7-day content calendar (Day 1 to Day 7). For each day give:
+- Post type (Reel, image, poll, story, etc.)
+- Post idea (specific and actionable, not vague)
+- Why it will get engagement in ${region}
+
+Keep each day to 2–3 lines. Be specific, creative, and culturally relevant to ${region}.`;
+    },
+    caption: () => {
+      const topic = document.getElementById('cap-topic').value.trim();
+      const tone = document.getElementById('cap-tone').value;
+      const platform = document.getElementById('cap-platform').value;
+      if (!topic) return null;
+      return `Write a ${tone} social media caption for ${platform}.
+
+Post topic: ${topic}
+Tone: ${tone}
+
+Requirements:
+- Hook in the first line (make people stop scrolling)
+- 3–5 sentences of body copy that adds value or emotion
+- End with a question or call-to-action to boost comments
+- Add 3–5 relevant emojis naturally
+- Keep it authentic and human, not robotic
+
+Write ONE complete, ready-to-post caption. Do not add explanations.`;
+    },
+    bio: () => {
+      const about = document.getElementById('bio-input').value.trim();
+      const platform = document.getElementById('bio-platform').value;
+      if (!about) return null;
+      return `Write an optimised ${platform} profile bio for a creator.
+
+Page description: ${about}
+
+Requirements:
+- Maximum 150 characters (${platform} limit)
+- Start with what value the page gives the visitor
+- Include 1–2 relevant emojis
+- End with a soft call-to-action (Follow for..., Join us..., etc.)
+- Make it sound human, not AI
+
+Write 2 versions: one professional, one more casual/fun. Label them clearly.`;
+    }
+  };
+
+  const promptFn = prompts[tool];
+  const prompt = promptFn();
+  if (!prompt) {
+    alert('Please fill in the field first.');
+    return;
+  }
+
+  const outEl = document.getElementById('out-' + tool);
+  outEl.className = 'output loading show';
+  outEl.innerHTML = '<div class="dots"><span></span><span></span><span></span></div>&nbsp; AI is writing...';
+
+  // Disable button
+  const btn = event.currentTarget;
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await res.json();
+    const text = data.content?.find(b => b.type === 'text')?.text || 'No response. Please try again.';
+
+    outEl.className = 'output show';
+    outEl.innerHTML = `<button class="copy-btn" onclick="copyText(this.parentElement.innerText.replace('Copy','').trim())">Copy</button>${escapeHtml(text).replace(/\n/g,'<br>')}`;
+  } catch(e) {
+    outEl.className = 'output show';
+    outEl.textContent = 'Error connecting to AI. Please check your connection and try again.';
+  }
+
+  btn.disabled = false;
+}
+
+function escapeHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ========== INIT ==========
+buildChecklist();
+showTips('posting');
+updateSchedule();
+</script>
 </body>
 </html>
