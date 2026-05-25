@@ -3,59 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara AI — Organic Growth Hub</title>
+    <title>Sara AI — Organic Masterclass</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            background: #030D07;
-            color: #e0f0e8;
-            font-family: 'Outfit', sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
+        :root { --neon: #00D97E; --dark: #030D07; --card-bg: rgba(8, 24, 14, 0.98); }
+        body { background: var(--dark); color: #e0f0e8; font-family: 'Outfit', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        
+        .container { max-width: 450px; width: 100%; margin-top: 20px; }
+        
         .card {
-            background: rgba(8, 24, 14, 0.95);
+            background: var(--card-bg);
             border: 1px solid rgba(0, 217, 120, 0.3);
-            border-radius: 24px;
-            padding: 40px 20px;
-            max-width: 400px;
-            width: 90%;
+            border-radius: 28px;
+            padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 217, 120, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 217, 120, 0.1);
         }
 
         .badge {
             background: rgba(0, 217, 120, 0.1);
-            color: #00D97E;
-            padding: 6px 16px;
+            color: var(--neon);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
             display: inline-block;
         }
 
-        h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 42px;
-            margin: 0;
-            color: #fff;
+        h1 { font-family: 'Syne', sans-serif; font-size: 38px; margin: 0; color: #fff; }
+        h1 span { color: var(--neon); }
+
+        .strategy-box {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 18px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid var(--neon);
         }
 
-        h1 span { color: #00D97E; }
-
-        .subtitle {
-            color: #7ab893;
-            font-size: 15px;
-            margin: 10px 0 30px 0;
-            line-height: 1.5;
-        }
+        .strategy-title { color: var(--neon); font-weight: 700; font-size: 14px; margin-bottom: 10px; display: block; }
+        
+        .step { font-size: 13px; line-height: 1.6; margin-bottom: 12px; display: flex; gap: 10px; }
+        .step span { color: var(--neon); font-weight: bold; }
 
         .btn-main {
             background: linear-gradient(135deg, #00D97E, #00A85E);
@@ -63,71 +56,62 @@
             text-decoration: none;
             display: block;
             padding: 18px;
-            border-radius: 14px;
+            border-radius: 15px;
             font-weight: 800;
             font-family: 'Syne', sans-serif;
-            margin-bottom: 15px;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 217, 120, 0.3);
-        }
-
-        .btn-main:hover { transform: translateY(-2px); opacity: 0.9; }
-
-        .tool-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .tool {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(0, 217, 120, 0.1);
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 13px;
-            color: #b0d8c0;
+            margin-top: 10px;
         }
 
         .footer-team {
             margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
             font-size: 11px;
             color: #5a8a6a;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
         }
 
-        .bots {
-            color: #00D97E;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-top: 5px;
-        }
+        .bots { color: var(--neon); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: block; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="badge">OFFICIAL ACCESS</div>
-        <h1>Sara<span>AI</span></h1>
-        <p class="subtitle">Orchestrating Legal Innovation &<br>Organic Growth Strategies</p>
+    <div class="container">
+        <div class="card">
+            <div class="badge">2026 Growth Blueprint</div>
+            <h1>Sara<span>AI</span></h1>
+            
+            <div class="strategy-box">
+                <span class="strategy-title">3-STEP ORGANIC ORCHESTRATION</span>
+                
+                <div class="step">
+                    <span>01</span>
+                    <div><strong>The Video Hook:</strong> Post 60-second vertical videos. 2026 algorithms prioritize video "dwell time" over text.</div>
+                </div>
 
-        <a href="https://www.facebook.com/saraai2056" target="_blank" class="btn-main">
-            FOLLOW @saraai2056
-        </a>
+                <div class="step">
+                    <span>02</span>
+                    <div><strong>The "1-Hour" Rule:</strong> Reply to every comment within the first hour to trigger the Facebook "Viral Boost."</div>
+                </div>
 
-        <div class="tool-grid">
-            <div class="tool">📈 Growth Tips</div>
-            <div class="tool">🏷️ Viral Tags</div>
-            <div class="tool">💡 Post Ideas</div>
-            <div class="tool">📊 Reach Calc</div>
-        </div>
+                <div class="step">
+                    <span>03</span>
+                    <div><strong>Niche Authority:</strong> Focus on AI in the Legal sector. High-quality info for a specific group beats generic news.</div>
+                </div>
+            </div>
 
-        <div class="footer-team">
-            Powered by the Sara AI Team
-            <span class="bots">Atlas • Nova • Sage</span>
+            <p style="font-size: 13px; color: #7ab893; margin-bottom: 20px;">
+                Ready to unlock the full <strong>Legal-Tech Framework?</strong> Follow the page below:
+            </p>
+
+            <a href="https://www.facebook.com/saraai2056" target="_blank" class="btn-main">
+                JOIN @saraai2056
+            </a>
+
+            <div class="footer-team">
+                Orchestrated by the Sara AI Team
+                <span class="bots">Atlas • Nova • Sage</span>
+            </div>
         </div>
     </div>
 
