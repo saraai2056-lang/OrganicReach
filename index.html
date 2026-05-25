@@ -1,53 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara AI - Premium Legal Tech & AI Resources</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Sara AI — Organic Growth Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet"/>
+  
+  <style>
+    /* 1. CORE DESIGN - Dark Tech Theme */
+    body {
+      background: #030D07; /* Dark background from your screenshot */
+      color: #e0f0e8;
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container { width: 100%; max-width: 420px; text-align: center; }
+
+    /* 2. THE WORKABLE CARD */
+    .card {
+      background: rgba(8, 24, 14, 0.95); /* Deep green/black card */
+      border: 1px solid rgba(0, 217, 120, 0.2);
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; margin: 0; color: #fff; }
+    h1 span { color: #00D97E; } /* Neon Green Accent */
+
+    .subtitle { color: #7ab893; font-size: 14px; margin-bottom: 25px; }
+
+    .badge {
+      background: rgba(0, 217, 120, 0.1);
+      color: #00D97E;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 15px;
+      border: 1px solid rgba(0, 217, 120, 0.2);
+    }
+
+    /* 3. FACEBOOK PLUGIN BOX */
+    .follow-box {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid rgba(255,255,255,0.05);
+      min-height: 150px;
+    }
+
+    .fb-prompt { font-size: 13px; margin-bottom: 12px; color: #e0f0e8; }
+
+    /* 4. BUTTON DESIGN */
+    .btn-primary {
+      background: linear-gradient(135deg, #00D97E, #00A85E);
+      color: #000;
+      border: none;
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: 'Syne', sans-serif;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:active { transform: scale(0.98); }
+  </style>
 </head>
 <body>
 
-<!-- Meta/Facebook JavaScript SDK -->
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
 
 <div class="container">
-    <header>
-        <h1>Sara AI</h1>
-        <p>Orchestrating Legal Technology & AI Governance</p>
-    </header>
+    <h1>Sara<span>AI</span></h1>
+    <p class="subtitle">Legal Tech & AI Governance</p>
 
-    <main>
-        <div class="card">
-            <div class="badge">Exclusive Access</div>
-            <h3>Download AI Legal-Tech Framework</h3>
-            <p class="description">Get the official orchestration logic, prompt frameworks, and no-code building blueprints used by our team.</p>
+    <div class="card">
+        <span class="badge">ORGANIC GROWTH TOOL</span>
+        <h3>AI Legal-Tech Framework</h3>
+        <p style="font-size: 14px; color: #7ab893; line-height: 1.6;">
+          Join the community to unlock premium blueprints and orchestration logic.
+        </p>
+
+        <div class="follow-box">
+            <p class="fb-prompt">Step 1: Follow the <strong>Sara AI Team</strong></p>
             
-            <!-- Optimized Facebook Follow Box -->
-            <div class="follow-box">
-                <p class="follow-prompt">Step 1: Join the <strong>Sara AI Team</strong> community to stay updated:</p>
-                
-                <!-- NOTE: Replace the URL below with your actual Sara AI Facebook page link once live -->
-                <div class="fb-page" 
-                    data-href="https://www.facebook.com/facebook" 
-                    data-tabs="timeline" 
-                    data-small-header="false" 
-                    data-adapt-container-width="true" 
-                    data-hide-cover="false" 
-                    data-show-facepile="true">
-                    <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
-                        <a href="https://www.facebook.com/facebook">Sara AI Team</a>
-                    </blockquote>
-                </div>
+            <div class="fb-page" 
+                data-href="https://www.facebook.com/facebook" 
+                data-tabs="timeline" 
+                data-small-header="true" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true">
             </div>
-
-            <!-- Soft-Gate Action Button -->
-            <button class="btn-main" onclick="alert('Thank you! The framework download link has been unlocked. Make sure you are following the page for daily updates!')">
-                Access Framework Now
-            </button>
         </div>
-    </main>
+
+        <button class="btn-primary" onclick="alert('Access Unlocked! Make sure you are following the page to receive the framework in your Facebook feed.')">
+            Access Framework Now
+        </button>
+    </div>
 </div>
 
 </body>
