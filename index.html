@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <title>Sara AI — Organic Growth Tool</title>
+  <title>Sara AI — Organic Growth Hub</title>
   
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -16,37 +16,38 @@
     
     .card { 
         background: rgba(8, 24, 14, 0.95); 
-        border: 1px solid rgba(0, 217, 120, 0.2); 
-        border-radius: 18px; 
-        padding: 30px; 
+        border: 1px solid rgba(0, 217, 120, 0.25); 
+        border-radius: 22px; 
+        padding: 35px 25px; 
         text-align: center;
-        box-shadow: 0 10px 40px rgba(0,217,120,0.1);
+        box-shadow: 0 15px 50px rgba(0,217,120,0.15);
     }
 
-    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 36px; color: #fff; margin: 0; }
+    h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 38px; color: #fff; margin: 0; letter-spacing: -1px; }
     h1 span { color: #00D97E; }
     
     .btn-primary { 
         background: linear-gradient(135deg, #00D97E, #00A85E); 
-        border: none; border-radius: 12px; padding: 16px; 
+        border: none; border-radius: 14px; padding: 18px; 
         color: #000; font-weight: 700; width: 100%; 
         cursor: pointer; font-family: 'Syne', sans-serif; 
         margin-top: 20px; font-size: 16px;
+        box-shadow: 0 4px 15px rgba(0, 217, 120, 0.3);
     }
 
     .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
     .tool-item { 
         background: rgba(255,255,255,0.03); 
         border: 1px solid rgba(0,217,120,0.1); 
-        padding: 15px; border-radius: 12px; font-size: 13px; 
+        padding: 18px 10px; border-radius: 15px; font-size: 12px; 
         cursor: pointer; transition: 0.3s;
     }
-    .tool-item:hover { border-color: #00D97E; background: rgba(0,217,120,0.05); }
+    .tool-item:hover { border-color: #00D97E; background: rgba(0,217,120,0.08); }
     
-    .badge { background: rgba(0, 217, 120, 0.1); color: #00D97E; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
+    .badge { background: rgba(0, 217, 120, 0.1); color: #00D97E; padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 15px; border: 1px solid rgba(0,217,120,0.2); }
     
-    .team-box { margin-top: 20px; font-size: 12px; color: #7ab893; border-top: 1px solid rgba(0,217,120,0.1); paddingTop: 15px; }
-    .bot-names { color: #00D97E; font-weight: 600; letter-spacing: 1px; }
+    .team-box { margin-top: 25px; font-size: 11px; color: #5a8a6a; border-top: 1px solid rgba(0,217,120,0.1); padding-top: 20px; }
+    .bot-names { color: #00D97E; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
   </style>
 </head>
 <body>
@@ -58,39 +59,31 @@
 
   function App() {
     const [view, setView] = useState('home');
+    const FB_LINK = "https://www.facebook.com/saraai2056";
 
     const HomePage = () => (
-      <div className="page fade-up">
+      <div className="page">
         <div className="card">
-          <span className="badge">OFFICIAL PORTAL</span>
+          <span className="badge">SARA AI TEAM OFFICIAL</span>
           <h1>Sara<span>AI</span></h1>
-          <p style={{color:'#7ab893', fontSize:'15px', marginTop:'8px'}}>Organic Growth & Legal Tech</p>
+          <p style={{color:'#7ab893', fontSize:'14px', marginTop:'10px', lineHeight:'1.5'}}>
+            Mastering Organic Reach & <br/>AI-Driven Legal Innovation.
+          </p>
           
           <div className="tool-grid">
             <div className="tool-item" onClick={() => setView('tips')}>📈 Growth Tips</div>
+            <div className="tool-item" onClick={() => setView('fb')}>👤 Follow Page</div>
             <div className="tool-item" onClick={() => setView('hash')}>🏷️ Hashtags</div>
-            <div className="tool-item" onClick={() => setView('ideas')}>💡 Post Ideas</div>
-            <div className="tool-item" onClick={() => setView('fb')}>👤 Follow Us</div>
+            <div className="tool-item" onClick={() => setView('ideas')}>💡 Ideas</div>
           </div>
+
+          <button className="btn-primary" onClick={() => window.open(FB_LINK, '_blank')}>
+            Unlock Framework Now
+          </button>
 
           <div className="team-box">
-            Managed by <span className="bot-names">ATLAS • NOVA • SAGE</span>
+            Orchestrated by <br/><span className="bot-names">Atlas • Nova • Sage</span>
           </div>
-        </div>
-      </div>
-    );
-
-    const TipsPage = () => (
-      <div className="page">
-        <div className="card">
-          <h3 style={{color: '#00D97E'}}>Organic Growth Tips</h3>
-          <ul style={{textAlign:'left', fontSize:'14px', lineHeight:'1.8', color:'#b0d8c0'}}>
-            <li>Post 3-5 times weekly for consistency.</li>
-            <li>Reply to all comments within 60 minutes.</li>
-            <li>Use 3 niche hashtags to avoid spam filters.</li>
-            <li>Facebook Live boosts reach by 6x.</li>
-          </ul>
-          <button className="btn-primary" onClick={() => setView('home')}>Back to Tools</button>
         </div>
       </div>
     );
@@ -98,17 +91,32 @@
     const FacebookPage = () => (
       <div className="page">
         <div className="card">
-          <div style={{fontSize:'40px', marginBottom:'15px'}}>🌱</div>
-          <h3>Join the Community</h3>
-          <p style={{fontSize:'14px', color:'#7ab893'}}>To unlock the AI Legal-Tech Framework, join our official page.</p>
+          <div style={{fontSize:'45px', marginBottom:'15px'}}>🔗</div>
+          <h3 style={{fontFamily:'Syne'}}>Direct Follow</h3>
+          <p style={{fontSize:'14px', color:'#7ab893', marginBottom:'20px'}}>Click below to join <strong>@saraai2056</strong> and access our premium blueprints.</p>
           
-          <button className="btn-primary" onClick={() => window.open('https://www.facebook.com/share/1Kvrsu4koH/', '_blank')}>
-            Follow Sara AI Page
+          <button className="btn-primary" onClick={() => window.open(FB_LINK, '_blank')}>
+            Open @saraai2056
           </button>
           
-          <button style={{background:'none', border:'none', color:'#5a8a6a', marginTop:'20px', cursor:'pointer', fontSize:'13px'}} onClick={() => setView('home')}>
-            ← Return to Dashboard
+          <button style={{background:'none', border:'none', color:'#5a8a6a', marginTop:'25px', cursor:'pointer', fontSize:'13px'}} onClick={() => setView('home')}>
+            ← Back to Dashboard
           </button>
+        </div>
+      </div>
+    );
+
+    const TipsPage = () => (
+      <div className="page">
+        <div className="card">
+          <h3 style={{color: '#00D97E', fontFamily:'Syne'}}>Organic Strategy</h3>
+          <div style={{textAlign:'left', fontSize:'14px', lineHeight:'2', color:'#b0d8c0', margin:'20px 0'}}>
+            • <strong>Video First:</strong> 5x more reach than text.<br/>
+            • <strong>Engage:</strong> Reply to comments within 1hr.<br/>
+            • <strong>Timing:</strong> Post Wed/Fri at 11:00 AM.<br/>
+            • <strong>Hashtags:</strong> Use 3 specific, not 30 random.
+          </div>
+          <button className="btn-primary" onClick={() => setView('home')}>Got it!</button>
         </div>
       </div>
     );
