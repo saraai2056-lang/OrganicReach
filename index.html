@@ -3,133 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Sara AI | Real Growth Toolkit</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Sara AI | Free Growth Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --g:#00FF8C;--g2:#00C96B;--g3:#009950;
-  --bg:#030C06;--card:#071209;--card2:#0a1a0e;
-  --border:rgba(0,255,140,0.15);--border2:rgba(0,255,140,0.08);
-  --text:#d0eedd;--muted:#4a7a5a;--dim:#2a4a35;
-}
+:root{--g:#00FF8C;--g2:#00C96B;--bg:#030C06;--card:#071209;--border:rgba(0,255,140,0.15);--b2:rgba(0,255,140,0.08);--text:#d0eedd;--muted:#4a7a5a;--dim:#2a4a35}
 html{scroll-behavior:smooth}
 body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;
-  background-image:linear-gradient(rgba(0,255,140,0.03) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(0,255,140,0.03) 1px,transparent 1px);
-  background-size:36px 36px;z-index:0;pointer-events:none}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,140,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,140,0.03) 1px,transparent 1px);background-size:36px 36px;z-index:0;pointer-events:none}
 .orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none}
-.orb1{width:320px;height:320px;background:rgba(0,255,140,0.06);top:-60px;right:-60px}
-.orb2{width:280px;height:280px;background:rgba(0,180,90,0.04);bottom:5%;left:-80px}
+.orb1{width:300px;height:300px;background:rgba(0,255,140,0.06);top:-60px;right:-60px}
+.orb2{width:260px;height:260px;background:rgba(0,180,90,0.04);bottom:10%;left:-70px}
 .page{position:relative;z-index:1;max-width:460px;margin:0 auto;padding:16px 14px 60px}
-.topnav{display:flex;align-items:center;justify-content:space-between;padding:10px 0 20px}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px}
-.nav-logo em{color:var(--g);font-style:normal}
-.live-badge{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;
-  color:var(--g);background:rgba(0,255,140,0.08);border:1px solid var(--border);
-  padding:5px 10px;border-radius:20px;letter-spacing:1px}
+.topnav{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px}
+.logo em{color:var(--g);font-style:normal}
+.live{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:var(--g);background:rgba(0,255,140,0.08);border:1px solid var(--border);padding:5px 10px;border-radius:20px;letter-spacing:1px}
 .dot{width:7px;height:7px;background:var(--g);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,140,0.5)}50%{box-shadow:0 0 0 5px rgba(0,255,140,0)}}
-.hero{text-align:center;padding:10px 0 24px}
-.hero-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:#fff;letter-spacing:2px}
-.hero h1 em{color:var(--g);font-style:normal;text-shadow:0 0 40px rgba(0,255,140,0.35)}
-.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6;max-width:300px;margin-left:auto;margin-right:auto}
-.regions{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:24px}
-.rtag{font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;
-  border:1px solid var(--border2);background:rgba(0,255,140,0.04);color:#7acb97}
-.sec{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);
-  margin:28px 0 12px;display:flex;align-items:center;gap:8px}
-.sec::after{content:'';flex:1;height:1px;background:var(--border2)}
-.tcard{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:18px;margin-bottom:12px;transition:border-color 0.3s}
-.tcard:focus-within{border-color:var(--border)}
-.tcard-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.tcard-icon{width:40px;height:40px;border-radius:12px;background:rgba(0,255,140,0.08);
-  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.tcard-title{font-weight:700;font-size:14px;color:#fff}
-.tcard-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
-.field-row{display:flex;gap:8px;margin-bottom:10px}
-.inp{flex:1;background:rgba(0,0,0,0.3);border:1px solid var(--border2);border-radius:12px;
-  padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;
-  transition:border-color 0.2s;width:100%;-webkit-appearance:none}
+.hero{text-align:center;padding:8px 0 18px}
+.hero-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:50px;line-height:1;color:#fff;letter-spacing:2px}
+.hero h1 em{color:var(--g);font-style:normal;text-shadow:0 0 40px rgba(0,255,140,0.3)}
+.hero p{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6}
+.fb-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#1877F2,#0d5fd4);color:#fff;border:none;border-radius:14px;padding:15px 20px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;width:100%;margin:16px 0 20px;box-shadow:0 6px 24px rgba(24,119,242,0.3);transition:transform 0.15s,box-shadow 0.2s;text-decoration:none}
+.fb-btn:hover{transform:scale(1.01);box-shadow:0 8px 30px rgba(24,119,242,0.4)}
+.fb-btn:active{transform:scale(0.97)}
+.regions{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:22px}
+.rtag{font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;border:1px solid var(--b2);background:rgba(0,255,140,0.04);color:#7acb97}
+.sec{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:26px 0 12px;display:flex;align-items:center;gap:8px}
+.sec::after{content:'';flex:1;height:1px;background:var(--b2)}
+.tcard{background:var(--card);border:1px solid var(--b2);border-radius:20px;padding:18px;margin-bottom:12px;transition:border-color 0.3s}
+.thead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ticon{width:40px;height:40px;border-radius:12px;background:rgba(0,255,140,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ttitle{font-weight:700;font-size:14px;color:#fff}
+.tdesc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+.row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.inp{flex:1;background:rgba(0,0,0,0.35);border:1px solid var(--b2);border-radius:12px;padding:11px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color 0.2s;min-width:0;-webkit-appearance:none;appearance:none}
 .inp:focus{border-color:rgba(0,255,140,0.4)}
 .inp::placeholder{color:var(--dim)}
-select.inp{cursor:pointer;background-color:rgba(0,0,0,0.4)}
-.run-btn{background:linear-gradient(135deg,var(--g),var(--g2));color:#030C06;
-  border:none;border-radius:12px;padding:12px 18px;font-family:'DM Sans',sans-serif;
-  font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;
-  transition:opacity 0.2s,transform 0.15s;flex-shrink:0}
-.run-btn:active{transform:scale(0.96)}
-.run-btn:disabled{opacity:0.45;cursor:not-allowed}
-.output{background:rgba(0,0,0,0.25);border:1px solid var(--border2);border-radius:14px;
-  padding:14px;font-size:12px;line-height:1.75;color:#b0d8c0;min-height:60px;
-  display:none;position:relative;white-space:pre-wrap;word-break:break-word}
-.output.show{display:block}
-.output.loading{display:flex;align-items:center;gap:6px;color:var(--muted)}
-.copy-btn{position:absolute;top:8px;right:8px;background:rgba(0,255,140,0.1);
-  border:1px solid var(--border);color:var(--g);border-radius:8px;padding:4px 8px;
-  font-size:10px;font-weight:700;cursor:pointer}
-.dots span{width:6px;height:6px;background:var(--g);border-radius:50%;display:inline-block;animation:blink 1.2s infinite}
-.dots span:nth-child(2){animation-delay:.2s}
-.dots span:nth-child(3){animation-delay:.4s}
-@keyframes blink{0%,100%{opacity:.2;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+select.inp{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a7a5a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:30px}
+.run{background:linear-gradient(135deg,var(--g),var(--g2));color:#030C06;border:none;border-radius:12px;padding:11px 18px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:transform 0.15s,opacity 0.2s}
+.run:active{transform:scale(0.96)}
+.out{background:rgba(0,0,0,0.25);border:1px solid var(--b2);border-radius:14px;padding:14px;font-size:12px;line-height:1.8;color:#b0d8c0;white-space:pre-wrap;word-break:break-word;position:relative;display:none}
+.out.show{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cp{position:absolute;top:8px;right:8px;background:rgba(0,255,140,0.1);border:1px solid var(--border);color:var(--g);border-radius:8px;padding:4px 9px;font-size:10px;font-weight:700;cursor:pointer;transition:background 0.2s}
+.cp:hover{background:rgba(0,255,140,0.2)}
 .tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.tip-box{background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:14px;cursor:pointer;transition:border-color 0.2s,background 0.2s}
-.tip-box.active{border-color:rgba(0,255,140,0.4);background:rgba(0,255,140,0.04)}
+.tip-box{background:var(--card);border:1px solid var(--b2);border-radius:16px;padding:14px;cursor:pointer;transition:all 0.2s}
+.tip-box.on{border-color:rgba(0,255,140,0.4);background:rgba(0,255,140,0.04)}
 .tip-icon{font-size:22px;margin-bottom:6px}
 .tip-title{font-size:12px;font-weight:700;color:#fff}
 .tip-sub{font-size:10px;color:var(--muted);margin-top:2px}
-.tips-content{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;display:none}
-.tips-content.show{display:block}
-.tip-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border2)}
-.tip-item:last-child{border-bottom:none;padding-bottom:0}
-.tip-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);line-height:1;flex-shrink:0;width:24px}
-.tip-text{font-size:12px;line-height:1.6;color:var(--text)}
-.tip-text strong{color:var(--g);font-weight:700}
-.schedule-card{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:18px;margin-bottom:12px}
-.sch-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.sch-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
-.checklist{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:18px;margin-bottom:12px}
-.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border2);cursor:pointer}
-.check-item:last-child{border-bottom:none;padding-bottom:0}
-.chk{width:18px;height:18px;border:2px solid var(--border);border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.chk.done{background:var(--g);border-color:var(--g)}
-.chk.done::after{content:'checkmark';font-size:11px;color:#030C06;font-weight:900}
-.check-text{font-size:12px;line-height:1.5;color:var(--text)}
-.check-text.done{text-decoration:line-through;color:var(--muted)}
-.meter{height:6px;background:rgba(0,255,140,0.08);border-radius:10px;margin-top:14px;overflow:hidden}
-.meter-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g));border-radius:10px;transition:width 0.5s}
-.meter-label{font-size:10px;color:var(--muted);margin-top:6px;text-align:right}
-.footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border2)}
-.footer p{font-size:11px;color:var(--muted);line-height:1.7}
-.footer strong{color:var(--g)}
+.tips-panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:12px}
+.titem{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--b2)}
+.titem:last-child{border-bottom:none;padding-bottom:0}
+.tnum{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);line-height:1;flex-shrink:0;width:26px}
+.ttext{font-size:12px;line-height:1.65;color:var(--text)}
+.ttext b{color:var(--g)}
+.sch-card{background:var(--card);border:1px solid var(--b2);border-radius:20px;padding:18px;margin-bottom:12px}
+.sch-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.sch-lbl{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.cl-card{background:var(--card);border:1px solid var(--b2);border-radius:20px;padding:18px;margin-bottom:10px}
+.ci{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--b2);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ci:last-child{border-bottom:none;padding-bottom:0}
+.chk{width:19px;height:19px;border:2px solid var(--b2);border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-size:11px;color:#030C06;font-weight:900}
+.chk.on{background:var(--g);border-color:var(--g)}
+.ct{font-size:12px;line-height:1.55;color:var(--text);transition:all 0.2s}
+.ct.done{text-decoration:line-through;color:var(--muted)}
+.meter{height:6px;background:rgba(0,255,140,0.08);border-radius:10px;margin-top:12px;overflow:hidden}
+.mfill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g));border-radius:10px;transition:width 0.4s cubic-bezier(.22,1,.36,1)}
+.mlbl{font-size:10px;color:var(--muted);margin-top:6px;text-align:right}
+.footer{text-align:center;margin-top:36px;padding-top:18px;border-top:1px solid var(--b2)}
+.footer p{font-size:11px;color:var(--muted);line-height:1.8}
+.footer b{color:var(--g)}
 .team{display:flex;justify-content:center;gap:8px;margin-top:12px}
 .agent{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g);background:rgba(0,255,140,0.06);border:1px solid var(--border);padding:4px 12px;border-radius:20px}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:rgba(0,255,140,0.12);border:1px solid rgba(0,255,140,0.3);color:var(--g);
-  padding:10px 20px;border-radius:30px;font-size:12px;font-weight:600;z-index:999;
-  transition:transform 0.3s;pointer-events:none}
-.toast.show{transform:translateX(-50%) translateY(0)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:rgba(0,255,140,0.12);border:1px solid rgba(0,255,140,0.3);color:var(--g);padding:10px 20px;border-radius:30px;font-size:12px;font-weight:600;z-index:999;transition:transform 0.3s;pointer-events:none}
+.toast.on{transform:translateX(-50%) translateY(0)}
+.tag-chip{display:inline-block;background:rgba(0,255,140,0.08);border:1px solid rgba(0,255,140,0.2);color:var(--g);padding:4px 10px;border-radius:20px;font-size:11px;margin:3px;cursor:pointer;transition:background 0.2s}
+.tag-chip:hover{background:rgba(0,255,140,0.18)}
 </style>
 </head>
 <body>
 <div class="orb orb1"></div>
 <div class="orb orb2"></div>
-<div class="toast" id="toast">Copied to clipboard!</div>
+<div class="toast" id="toast">✓ Copied!</div>
+
 <div class="page">
 
+  <!-- NAV -->
   <div class="topnav">
-    <div class="nav-logo">Sara<em>AI</em></div>
-    <div class="live-badge"><span class="dot"></span>TOOLS LIVE</div>
+    <div class="logo">Sara<em>AI</em></div>
+    <div class="live"><span class="dot"></span>TOOLS LIVE</div>
   </div>
 
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-tag">Free Organic Growth Toolkit</div>
     <h1>Grow <em>Real</em><br>Followers</h1>
-    <p class="hero-sub">100% organic AI tools. No fake followers. No bots. Just real, lasting growth for your page.</p>
+    <p>100% organic tools. No fake followers. No bots.<br>Real, lasting growth for your page.</p>
   </div>
 
+  <!-- FACEBOOK FOLLOW -->
+  <a class="fb-btn" href="https://www.facebook.com/saraai2056" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    Follow Sara AI on Facebook
+  </a>
+
+  <!-- REGIONS -->
   <div class="regions">
     <span class="rtag">🇬🇧 UK</span>
     <span class="rtag">🇺🇸 USA</span>
@@ -138,349 +121,662 @@ select.inp{cursor:pointer;background-color:rgba(0,0,0,0.4)}
     <span class="rtag">🌍 Global</span>
   </div>
 
-  <!-- TOOL 1 -->
-  <div class="sec">AI Hashtag Generator</div>
+  <!-- TOOL 1: HASHTAG GENERATOR -->
+  <div class="sec">Hashtag Generator</div>
   <div class="tcard">
-    <div class="tcard-head">
-      <div class="tcard-icon">🏷️</div>
+    <div class="thead">
+      <div class="ticon">🏷️</div>
       <div>
-        <div class="tcard-title">Viral Hashtag Builder</div>
-        <div class="tcard-desc">Get platform-specific hashtags that actually reach real people in your niche</div>
+        <div class="ttitle">Viral Hashtag Builder</div>
+        <div class="tdesc">Get real targeted hashtags for your niche — tap any tag to copy it</div>
       </div>
     </div>
-    <div class="field-row">
-      <input class="inp" id="hash-niche" placeholder="Your niche (e.g. food, fitness, tech...)" />
+    <div class="row">
+      <select class="inp" id="hash-niche">
+        <option value="">-- Select your niche --</option>
+        <option>Food & Cooking</option>
+        <option>Fitness & Health</option>
+        <option>Fashion & Style</option>
+        <option>Travel</option>
+        <option>Business & Money</option>
+        <option>Technology</option>
+        <option>Education</option>
+        <option>Comedy & Entertainment</option>
+        <option>Beauty & Makeup</option>
+        <option>Islam & Religion</option>
+        <option>Cricket & Sports</option>
+        <option>Music</option>
+        <option>Photography</option>
+        <option>Motivation</option>
+        <option>Parenting & Family</option>
+      </select>
     </div>
-    <div class="field-row">
+    <div class="row">
       <select class="inp" id="hash-platform">
-        <option>Facebook</option><option>Instagram</option><option>TikTok</option><option>YouTube</option>
+        <option>Facebook</option>
+        <option>Instagram</option>
+        <option>TikTok</option>
+        <option>YouTube</option>
       </select>
       <select class="inp" id="hash-region">
-        <option>UK</option><option>USA</option><option>Pakistan</option><option>India</option><option>Global</option>
+        <option>UK</option>
+        <option>USA</option>
+        <option>Pakistan</option>
+        <option>India</option>
+        <option>Global</option>
       </select>
-      <button class="run-btn" id="btn-hashtag" onclick="runTool('hashtag',this)">Run</button>
+      <button class="run" onclick="generateHashtags()">Generate</button>
     </div>
-    <div class="output" id="out-hashtag"></div>
+    <div class="out" id="out-hashtag"></div>
   </div>
 
-  <!-- TOOL 2 -->
-  <div class="sec">AI Content Ideas</div>
+  <!-- TOOL 2: CONTENT IDEAS -->
+  <div class="sec">Content Ideas</div>
   <div class="tcard">
-    <div class="tcard-head">
-      <div class="tcard-icon">💡</div>
+    <div class="thead">
+      <div class="ticon">💡</div>
       <div>
-        <div class="tcard-title">7-Day Content Calendar</div>
-        <div class="tcard-desc">Posts your audience actually wants to see — planned for a full week</div>
+        <div class="ttitle">7-Day Content Calendar</div>
+        <div class="tdesc">A full week of post ideas tailored to your niche and region</div>
       </div>
     </div>
-    <div class="field-row">
-      <input class="inp" id="idea-niche" placeholder="What is your page about?" />
-      <select class="inp" style="max-width:130px" id="idea-region">
-        <option>UK</option><option>USA</option><option>Pakistan</option><option>India</option><option>Global</option>
+    <div class="row">
+      <select class="inp" id="idea-niche">
+        <option value="">-- Select your niche --</option>
+        <option>Food & Cooking</option>
+        <option>Fitness & Health</option>
+        <option>Fashion & Style</option>
+        <option>Travel</option>
+        <option>Business & Money</option>
+        <option>Technology</option>
+        <option>Education</option>
+        <option>Comedy & Entertainment</option>
+        <option>Beauty & Makeup</option>
+        <option>Islam & Religion</option>
+        <option>Cricket & Sports</option>
+        <option>Music</option>
+        <option>Photography</option>
+        <option>Motivation</option>
+        <option>Parenting & Family</option>
+      </select>
+      <select class="inp" id="idea-region" style="max-width:130px">
+        <option>UK</option>
+        <option>USA</option>
+        <option>Pakistan</option>
+        <option>India</option>
+        <option>Global</option>
       </select>
     </div>
-    <div class="field-row">
-      <button class="run-btn" style="width:100%" id="btn-ideas" onclick="runTool('ideas',this)">Generate 7-Day Plan</button>
+    <div class="row">
+      <button class="run" style="width:100%" onclick="generateIdeas()">Generate 7-Day Plan</button>
     </div>
-    <div class="output" id="out-ideas"></div>
+    <div class="out" id="out-ideas"></div>
   </div>
 
-  <!-- TOOL 3 -->
-  <div class="sec">AI Caption Writer</div>
+  <!-- TOOL 3: CAPTION TEMPLATES -->
+  <div class="sec">Caption Templates</div>
   <div class="tcard">
-    <div class="tcard-head">
-      <div class="tcard-icon">✍️</div>
+    <div class="thead">
+      <div class="ticon">✍️</div>
       <div>
-        <div class="tcard-title">Caption Generator</div>
-        <div class="tcard-desc">Scroll-stopping captions that drive real comments, shares and follows</div>
+        <div class="ttitle">Caption Generator</div>
+        <div class="tdesc">Ready-to-use captions — just fill in your details and post</div>
       </div>
     </div>
-    <div class="field-row">
-      <input class="inp" id="cap-topic" placeholder="Describe your post (e.g. sunset photo, new product...)" />
-    </div>
-    <div class="field-row">
-      <select class="inp" id="cap-tone">
-        <option value="Engaging and conversational">Engaging</option>
-        <option value="Funny and witty">Funny</option>
-        <option value="Inspirational">Inspiring</option>
-        <option value="Professional">Professional</option>
-        <option value="Emotional and personal">Emotional</option>
+    <div class="row">
+      <select class="inp" id="cap-type">
+        <option>Engagement (Ask a question)</option>
+        <option>Inspirational Quote</option>
+        <option>Product / Service</option>
+        <option>Behind the Scenes</option>
+        <option>Educational Tip</option>
+        <option>Funny / Relatable</option>
+        <option>Giveaway / Contest</option>
+        <option>Personal Story</option>
       </select>
       <select class="inp" id="cap-platform">
-        <option>Facebook</option><option>Instagram</option><option>TikTok</option>
+        <option>Facebook</option>
+        <option>Instagram</option>
+        <option>TikTok</option>
       </select>
-      <button class="run-btn" id="btn-caption" onclick="runTool('caption',this)">Write</button>
     </div>
-    <div class="output" id="out-caption"></div>
+    <div class="row">
+      <input class="inp" id="cap-topic" placeholder="Your topic (e.g. morning routine, new product...)" />
+      <button class="run" onclick="generateCaption()">Write</button>
+    </div>
+    <div class="out" id="out-caption"></div>
   </div>
 
-  <!-- TOOL 4 -->
-  <div class="sec">AI Bio Optimizer</div>
+  <!-- TOOL 4: BIO TEMPLATES -->
+  <div class="sec">Profile Bio Builder</div>
   <div class="tcard">
-    <div class="tcard-head">
-      <div class="tcard-icon">👤</div>
+    <div class="thead">
+      <div class="ticon">👤</div>
       <div>
-        <div class="tcard-title">Profile Bio Writer</div>
-        <div class="tcard-desc">A strong bio converts visitors into followers — let AI write yours</div>
+        <div class="ttitle">Bio Optimizer</div>
+        <div class="tdesc">A strong bio turns visitors into followers — copy and customise yours</div>
       </div>
     </div>
-    <div class="field-row">
-      <input class="inp" id="bio-input" placeholder="Tell us about your page in a few words..." />
-    </div>
-    <div class="field-row">
-      <select class="inp" id="bio-platform">
-        <option>Facebook</option><option>Instagram</option><option>TikTok</option><option>YouTube</option>
+    <div class="row">
+      <select class="inp" id="bio-niche">
+        <option value="">-- Select your niche --</option>
+        <option>Food & Cooking</option>
+        <option>Fitness & Health</option>
+        <option>Fashion & Style</option>
+        <option>Travel</option>
+        <option>Business & Money</option>
+        <option>Technology</option>
+        <option>Education</option>
+        <option>Comedy & Entertainment</option>
+        <option>Beauty & Makeup</option>
+        <option>Islam & Religion</option>
+        <option>Cricket & Sports</option>
+        <option>Music</option>
+        <option>Motivation</option>
       </select>
-      <button class="run-btn" id="btn-bio" onclick="runTool('bio',this)">Optimize</button>
+      <select class="inp" id="bio-platform">
+        <option>Facebook</option>
+        <option>Instagram</option>
+        <option>TikTok</option>
+        <option>YouTube</option>
+      </select>
     </div>
-    <div class="output" id="out-bio"></div>
+    <div class="row">
+      <button class="run" style="width:100%" onclick="generateBio()">Generate Bio</button>
+    </div>
+    <div class="out" id="out-bio"></div>
   </div>
 
-  <!-- TIPS -->
+  <!-- TIPS SECTION -->
   <div class="sec">Organic Growth Tips</div>
   <div class="tips-grid">
-    <div class="tip-box active" id="tip-posting" onclick="showTips('posting',this)">
+    <div class="tip-box on" id="tb-posting" onclick="showTips('posting',this)">
       <div class="tip-icon">📅</div>
       <div class="tip-title">Posting Times</div>
       <div class="tip-sub">When to post by region</div>
     </div>
-    <div class="tip-box" id="tip-engagement" onclick="showTips('engagement',this)">
+    <div class="tip-box" id="tb-engagement" onclick="showTips('engagement',this)">
       <div class="tip-icon">💬</div>
       <div class="tip-title">Engagement</div>
-      <div class="tip-sub">Get more comments and shares</div>
+      <div class="tip-sub">Get more comments & shares</div>
     </div>
-    <div class="tip-box" id="tip-algorithm" onclick="showTips('algorithm',this)">
+    <div class="tip-box" id="tb-algorithm" onclick="showTips('algorithm',this)">
       <div class="tip-icon">📈</div>
       <div class="tip-title">Algorithm</div>
       <div class="tip-sub">How to beat the feed</div>
     </div>
-    <div class="tip-box" id="tip-growth" onclick="showTips('growth',this)">
+    <div class="tip-box" id="tb-growth" onclick="showTips('growth',this)">
       <div class="tip-icon">🚀</div>
       <div class="tip-title">Fast Growth</div>
       <div class="tip-sub">Proven organic tactics</div>
     </div>
   </div>
-  <div class="tips-content show" id="tips-panel"></div>
+  <div class="tips-panel" id="tips-panel"></div>
 
-  <!-- SCHEDULE -->
+  <!-- POSTING SCHEDULE -->
   <div class="sec">Best Posting Schedule</div>
-  <div class="schedule-card">
-    <div class="sch-row">
+  <div class="sch-card">
+    <div class="sch-grid">
       <div>
-        <div class="sch-label">Platform</div>
-        <select class="inp" id="sch-platform" onchange="updateSchedule()">
-          <option>Facebook</option><option>Instagram</option><option>TikTok</option><option>YouTube</option>
+        <div class="sch-lbl">Platform</div>
+        <select class="inp" id="sch-p" onchange="updateSchedule()">
+          <option>Facebook</option>
+          <option>Instagram</option>
+          <option>TikTok</option>
+          <option>YouTube</option>
         </select>
       </div>
       <div>
-        <div class="sch-label">Region</div>
-        <select class="inp" id="sch-region" onchange="updateSchedule()">
-          <option>UK</option><option>USA</option><option>Pakistan</option><option>India</option>
+        <div class="sch-lbl">Region</div>
+        <select class="inp" id="sch-r" onchange="updateSchedule()">
+          <option>UK</option>
+          <option>USA</option>
+          <option>Pakistan</option>
+          <option>India</option>
         </select>
       </div>
     </div>
-    <div class="output show" id="out-schedule" style="font-size:12px;white-space:pre-wrap"></div>
+    <div class="out show" id="out-schedule" style="font-size:12px"></div>
   </div>
 
-  <!-- CHECKLIST -->
+  <!-- DAILY CHECKLIST -->
   <div class="sec">Daily Growth Checklist</div>
-  <div class="checklist" id="checklist"></div>
-  <div class="meter"><div class="meter-fill" id="meter-fill" style="width:0%"></div></div>
-  <div class="meter-label" id="meter-label">0 / 8 tasks complete</div>
+  <div class="cl-card" id="checklist"></div>
+  <div class="meter"><div class="mfill" id="mfill" style="width:0%"></div></div>
+  <div class="mlbl" id="mlbl">0 / 8 tasks complete</div>
 
+  <!-- FOOTER -->
   <div class="footer">
-    <p>Built by <strong>Sara AI</strong> to help creators grow honestly.<br>
-    No fake followers. No paid ads. Just <strong>real organic growth</strong>.<br>
-    Optimised for UK · USA · Pakistan · India</p>
-    <div class="team">
+    <p>Built by <b>Sara AI</b> to help creators grow honestly.<br>
+    No fake followers · No paid ads · Just <b>real organic growth</b><br>
+    🇬🇧 UK · 🇺🇸 USA · 🇵🇰 Pakistan · 🇮🇳 India</p>
+    <a class="fb-btn" href="https://www.facebook.com/saraai2056" target="_blank" rel="noopener" style="margin-top:14px;font-size:13px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Join Sara AI Community on Facebook
+    </a>
+    <div class="team" style="margin-top:14px">
       <span class="agent">Atlas</span>
       <span class="agent">Nova</span>
       <span class="agent">Sage</span>
     </div>
   </div>
+
 </div>
 
 <script>
+// ===================== DATA =====================
+
+const HASHTAGS = {
+  "Food & Cooking": {
+    Facebook: {
+      UK: { high:["#Food","#FoodPhotography","#FoodLovers","#Foodie","#HomeCooking"], mid:["#UKFood","#BritishFood","#LondonFood","#FoodBloggerUK","#RecipeIdeas"], niche:["#UKFoodie","#BritishRecipes","#LondonEats","#SundayRoast","#GreatBritishFood"] },
+      USA: { high:["#Food","#Foodie","#FoodPhotography","#Yummy","#Delicious"], mid:["#AmericanFood","#FoodBlogger","#HomeChef","#ComfortFood","#FoodInspiration"], niche:["#USFoodie","#AmericanRecipes","#SoulFood","#FoodiesOfInstagram","#HomeCooking101"] },
+      Pakistan: { high:["#Food","#PakistaniFood","#Foodie","#Yummy","#HomeCooking"], mid:["#PakFood","#Desi","#DesiFood","#PakistanFood","#Karachi"], niche:["#PakistaniCuisine","#DesiKhana","#PakFoodie","#KarachiFood","#LahoreFood"] },
+      India: { high:["#Food","#IndianFood","#Foodie","#Yummy","#FoodPhotography"], mid:["#IndianCuisine","#DesiFood","#FoodBlogger","#Mumbai","#HomeCooking"], niche:["#IndianRecipes","#MumbaiFoodie","#DelhiFood","#IndianFoodie","#SpicyFood"] },
+      Global: { high:["#Food","#Foodie","#FoodPhotography","#Yummy","#Delicious"], mid:["#FoodBlogger","#HomeChef","#FoodInspiration","#FoodLovers","#Cooking"], niche:["#FoodCommunity","#RecipeShare","#FoodContent","#MealPrep","#FoodCreator"] }
+    },
+    Instagram: {
+      UK: { high:["#Food","#Foodie","#FoodPhotography","#Instafood","#FoodLovers"], mid:["#UKFoodie","#LondonFood","#BritishFood","#FoodBloggerUK","#FoodieUK"], niche:["#LondonEats","#UKRecipes","#BritishKitchen","#LondonRestaurants","#UKFoodBlogger"] },
+      USA: { high:["#Food","#Foodie","#Instafood","#FoodPhotography","#Yummy"], mid:["#FoodBlogger","#HomeCooking","#AmericanFood","#FoodInspiration","#FoodContent"], niche:["#NYCFood","#LAFoodie","#AmericanEats","#FoodiesOfIG","#FoodCreatorUSA"] },
+      Pakistan: { high:["#Food","#PakistaniFood","#Desi","#Yummy","#Foodie"], mid:["#PakFood","#DesiFood","#KarachiFood","#LahoreFood","#PakFoodie"], niche:["#PakistaniCuisine","#DesiKhana","#KarachiFoodie","#PakistanFood","#BiryaniLovers"] },
+      India: { high:["#Food","#IndianFood","#Foodie","#Instafood","#Yummy"], mid:["#IndianCuisine","#FoodBlogger","#MumbaiFood","#DelhiFood","#HomeCooking"], niche:["#IndianFoodBlogger","#StreetFoodIndia","#IndianRecipes","#MumbaiFoodie","#IndianKitchen"] },
+      Global: { high:["#Food","#Foodie","#Instafood","#FoodPhotography","#FoodLovers"], mid:["#FoodBlogger","#HomeChef","#FoodInspiration","#Cooking","#RecipeOfTheDay"], niche:["#FoodContent","#FoodCreator","#RecipeShare","#FoodCommunity","#CookingTips"] }
+    },
+    TikTok: {
+      UK: { high:["#food","#foodtok","#cooking","#recipe","#foodie"], mid:["#ukfood","#ukfoodie","#britishfood","#londonfood","#foodblogger"], niche:["#ukrecipes","#britishcooking","#londoneats","#ukfoodtok","#britishfoodie"] },
+      USA: { high:["#food","#foodtok","#cooking","#recipe","#yummy"], mid:["#americanfood","#foodblogger","#homecooking","#foodtiktok","#cookingtips"], niche:["#americanrecipes","#usfoodie","#foodcontentcreator","#homechef","#recipevideos"] },
+      Pakistan: { high:["#food","#pakistanifood","#desi","#yummy","#cooking"], mid:["#pakfood","#desifood","#karachifood","#lahorefood","#biryani"], niche:["#pakistanicuisine","#desifoodie","#pakfoodie","#karachifoodie","#desikhana"] },
+      India: { high:["#food","#indianfood","#cooking","#recipe","#foodie"], mid:["#indiancuisine","#desifood","#mumbaifood","#streetfood","#homecooking"], niche:["#indianrecipes","#indianfoodie","#desirecipes","#indiancooking","#spicyfood"] },
+      Global: { high:["#food","#foodtok","#cooking","#recipe","#foodie"], mid:["#foodblogger","#homecooking","#foodinspiration","#cookingtips","#mealprep"], niche:["#foodcreator","#recipevideo","#foodcontent","#cookingvideo","#foodcommunity"] }
+    },
+    YouTube: {
+      UK: { high:["#Food","#Recipe","#Cooking","#FoodVideo","#Foodie"], mid:["#UKFood","#BritishRecipes","#LondonFood","#UKCooking","#BritishCooking"], niche:["#UKFoodChannel","#BritishFoodChannel","#LondonCooking","#UKRecipeVideo","#BritishKitchen"] },
+      USA: { high:["#Food","#Recipe","#Cooking","#FoodVideo","#Yummy"], mid:["#AmericanRecipes","#HomeCooking","#FoodBlogger","#CookingChannel","#FoodContent"], niche:["#AmericanFoodChannel","#HomeCookingVideos","#RecipeChannel","#FoodYouTube","#CookingWithMe"] },
+      Pakistan: { high:["#Food","#PakistaniFood","#Recipe","#Cooking","#Desi"], mid:["#PakFood","#DesiRecipes","#PakistaniRecipes","#Biryani","#KarachiFood"], niche:["#PakistaniCookingChannel","#DesiCooking","#PakFoodChannel","#PakistaniKitchen","#DesiKhana"] },
+      India: { high:["#Food","#IndianFood","#Recipe","#Cooking","#Foodie"], mid:["#IndianRecipes","#IndianCooking","#FoodChannel","#HomeCooking","#DesiFood"], niche:["#IndianCookingChannel","#IndianFoodChannel","#RegionalRecipes","#IndianKitchen","#VegetarianRecipes"] },
+      Global: { high:["#Food","#Recipe","#Cooking","#FoodVideo","#Foodie"], mid:["#FoodChannel","#CookingChannel","#RecipeVideo","#FoodContent","#HomeCooking"], niche:["#FoodYouTuber","#CookingCreator","#RecipeCreator","#FoodCommunity","#CookingTips"] }
+    }
+  },
+  "Fitness & Health": {
+    Facebook: {
+      UK: { high:["#Fitness","#Health","#Workout","#Gym","#Healthy"], mid:["#UKFitness","#FitnessUK","#GymUK","#HealthyLiving","#FitLife"], niche:["#UKGym","#BritishFitness","#LondonFitness","#UKHealthy","#FitBritain"] },
+      USA: { high:["#Fitness","#Workout","#Gym","#Health","#Fit"], mid:["#FitnessMotivation","#GymLife","#HealthyLifestyle","#FitFam","#WorkoutRoutine"], niche:["#USFitness","#AmericanFitness","#FitnessGoals","#FitLife","#GymMotivation"] },
+      Pakistan: { high:["#Fitness","#Gym","#Health","#Workout","#Healthy"], mid:["#PakistanFitness","#GymPakistan","#FitPakistan","#HealthyPakistan","#FitnessMotivation"], niche:["#PakFitness","#KarachiFitness","#LahoreFitness","#PakGym","#FitPak"] },
+      India: { high:["#Fitness","#Gym","#Health","#Workout","#Fit"], mid:["#IndiaFitness","#IndianFitness","#FitnessIndia","#GymIndia","#HealthyIndia"], niche:["#IndianFitness","#MumbaiFitness","#DelhiFitness","#YogaIndia","#FitIndia"] },
+      Global: { high:["#Fitness","#Health","#Workout","#Gym","#Healthy"], mid:["#FitnessMotivation","#HealthyLifestyle","#GymLife","#FitLife","#WorkoutRoutine"], niche:["#FitnessContent","#FitCommunity","#HealthAndFitness","#FitnessJourney","#WorkoutTips"] }
+    },
+    Instagram: {
+      UK: { high:["#Fitness","#Gym","#Workout","#Health","#Fit"], mid:["#UKFitness","#LondonGym","#FitnessUK","#GymUK","#HealthyUK"], niche:["#UKFitFam","#BritishFitness","#LondonFit","#UKGymLife","#FitBritain"] },
+      USA: { high:["#Fitness","#Gym","#Workout","#Health","#FitFam"], mid:["#FitnessMotivation","#GymLife","#HealthyLifestyle","#WorkoutRoutine","#FitLife"], niche:["#USFitFam","#AmericanFitness","#FitnessJourney","#GymMotivation","#WorkoutInspiration"] },
+      Pakistan: { high:["#Fitness","#Gym","#Workout","#Health","#Fit"], mid:["#PakFitness","#GymPakistan","#FitnessMotivation","#HealthyPak","#FitPakistan"], niche:["#PakGymLife","#KarachiFit","#LahoreFit","#PakistanFitness","#DesiGym"] },
+      India: { high:["#Fitness","#Gym","#Workout","#Health","#FitFam"], mid:["#IndianFitness","#IndiaGym","#FitnessIndia","#HealthyIndia","#IndianGym"], niche:["#IndiaFitFam","#MumbaiFit","#DelhiFitness","#IndianBodybuilding","#YogaFitness"] },
+      Global: { high:["#Fitness","#Gym","#Workout","#Health","#Fit"], mid:["#FitnessMotivation","#GymLife","#HealthyLifestyle","#FitFam","#WorkoutRoutine"], niche:["#FitnessJourney","#FitnessContent","#FitCommunity","#GymMotivation","#WorkoutTips"] }
+    },
+    TikTok: {
+      UK: { high:["#fitness","#gym","#workout","#health","#fit"], mid:["#ukfitness","#ukgym","#londonfit","#fitnessuk","#gymuk"], niche:["#ukfitfam","#britishfitness","#londonworkout","#ukgymlife","#fituk"] },
+      USA: { high:["#fitness","#gym","#workout","#fitfam","#health"], mid:["#fitnesstok","#gymtok","#workouttok","#fitnessmotivation","#gymlife"], niche:["#usfitness","#americanfitness","#fitnesstiktok","#gymcontent","#workoutroutine"] },
+      Pakistan: { high:["#fitness","#gym","#workout","#health","#fit"], mid:["#pakfitness","#gymlife","#pakistanifitness","#fitnessmotivation","#healthylife"], niche:["#karachifitness","#lahoregym","#pakgymlife","#desifitness","#fitpakistan"] },
+      India: { high:["#fitness","#gym","#workout","#health","#fit"], mid:["#indianfitness","#indiagym","#fitnessindia","#gymmotivation","#healthyindia"], niche:["#mumbaifitness","#delhigym","#indianbodybuilding","#yogaindia","#fitindia"] },
+      Global: { high:["#fitness","#gym","#workout","#health","#fit"], mid:["#fitnessmotivation","#gymlife","#fitfam","#workoutroutine","#healthylifestyle"], niche:["#fitnessjourney","#fitnesscommunity","#workouttips","#gymcontent","#fitnesscreator"] }
+    },
+    YouTube: {
+      UK: { high:["#Fitness","#Workout","#Gym","#Health","#Exercise"], mid:["#UKFitness","#WorkoutRoutine","#HomeWorkout","#GymUK","#FitnessChannel"], niche:["#UKFitnessChannel","#BritishFitness","#LondonGym","#HomeWorkoutUK","#UKGymChannel"] },
+      USA: { high:["#Fitness","#Workout","#Gym","#Health","#Exercise"], mid:["#WorkoutRoutine","#HomeWorkout","#FitnessMotivation","#GymLife","#FitnessChannel"], niche:["#WorkoutVideos","#FitnessYouTube","#GymChannel","#HomeWorkoutVideos","#FitnessCreator"] },
+      Pakistan: { high:["#Fitness","#Gym","#Workout","#Health","#Exercise"], mid:["#PakistanFitness","#GymPakistan","#HomeWorkout","#FitnessMotivation","#HealthyPak"], niche:["#PakFitnessChannel","#PakistaniGym","#DesiWorkout","#FitPakistan","#PakGymChannel"] },
+      India: { high:["#Fitness","#Gym","#Workout","#Health","#Exercise"], mid:["#IndianFitness","#WorkoutRoutine","#HomeWorkout","#GymIndia","#FitnessIndia"], niche:["#IndianFitnessChannel","#IndianGym","#DesiWorkout","#YogaChannel","#FitnessYouTubeIndia"] },
+      Global: { high:["#Fitness","#Workout","#Gym","#Health","#Exercise"], mid:["#WorkoutRoutine","#HomeWorkout","#FitnessMotivation","#FitnessChannel","#GymLife"], niche:["#FitnessYouTuber","#WorkoutChannel","#FitnessContent","#GymContent","#FitnessCommunity"] }
+    }
+  }
+};
+
+// Default hashtags for niches not fully mapped
+const DEFAULT_HASH = {
+  "Fashion & Style": { high:["#Fashion","#Style","#OOTD","#Outfit","#FashionBlogger"], mid:["#FashionStyle","#StyleInspo","#FashionLover","#StyleBlogger","#OutfitIdeas"], niche:["#FashionContent","#StyleCreator","#FashionCommunity","#OOTD","#FashionInspiration"] },
+  "Travel": { high:["#Travel","#Wanderlust","#TravelPhotography","#TravelBlogger","#Explore"], mid:["#TravelLife","#TravelGram","#TravelInspiration","#TravelContent","#TravelCreator"], niche:["#TravelCommunity","#HiddenGems","#TravelTips","#TravelBlog","#TravelAdventure"] },
+  "Business & Money": { high:["#Business","#Entrepreneur","#Money","#Success","#Motivation"], mid:["#SmallBusiness","#EntrepreneurMindset","#BusinessTips","#FinanceTips","#Hustle"], niche:["#BusinessContent","#EntrepreneurLife","#MoneyMindset","#BusinessGrowth","#StartupLife"] },
+  "Technology": { high:["#Tech","#Technology","#AI","#Innovation","#Digital"], mid:["#TechNews","#TechTips","#AI","#Coding","#DigitalMarketing"], niche:["#TechContent","#TechCreator","#AIContent","#TechCommunity","#TechBlogger"] },
+  "Education": { high:["#Education","#Learning","#Knowledge","#Study","#Students"], mid:["#EducationContent","#LearnSomethingNew","#StudyTips","#StudentLife","#EduTech"], niche:["#EducationCreator","#LearnWithMe","#StudyWithMe","#EducationCommunity","#TeachersOfSocial"] },
+  "Comedy & Entertainment": { high:["#Funny","#Comedy","#Entertainment","#Viral","#Humor"], mid:["#ComedyContent","#FunnyVideos","#Memes","#EntertainmentContent","#LaughingHard"], niche:["#ComedyCreator","#FunnyCommunity","#ComedyLife","#EntertainmentCreator","#MakeThemLaugh"] },
+  "Beauty & Makeup": { high:["#Beauty","#Makeup","#MakeupTutorial","#Skincare","#BeautyTips"], mid:["#BeautyBlogger","#MakeupLover","#SkincareRoutine","#BeautyContent","#GlowUp"], niche:["#BeautyCreator","#MakeupCommunity","#SkincareContent","#BeautyTok","#GlowUpTips"] },
+  "Islam & Religion": { high:["#Islam","#Muslim","#Quran","#Allah","#Islamic"], mid:["#IslamicContent","#MuslimCommunity","#QuranQuotes","#IslamicReminder","#Faith"], niche:["#IslamicCreator","#MuslimContent","#QuranDaily","#IslamicWisdom","#DailyDua"] },
+  "Cricket & Sports": { high:["#Cricket","#Sports","#Cricket","#T20","#ICC"], mid:["#CricketLovers","#CricketFans","#SportContent","#CricketHighlights","#TeamIndia"], niche:["#CricketCommunity","#CricketCreator","#CricketUpdate","#CricketMoments","#CricketWorld"] },
+  "Music": { high:["#Music","#Song","#Singer","#NewMusic","#MusicVideo"], mid:["#MusicContent","#MusicCreator","#OriginalMusic","#CoverSong","#MusicLover"], niche:["#MusicCommunity","#IndependentArtist","#NewArtist","#MusicBlogger","#MusicProducer"] },
+  "Photography": { high:["#Photography","#Photo","#Photographer","#PhotoOfTheDay","#Nature"], mid:["#PhotographyContent","#PhotographyTips","#StreetPhotography","#PortraitPhotography","#LandscapePhotography"], niche:["#PhotographyCommunity","#PhotographyCreator","#PhotographyBlog","#CameraLife","#PhotographyLife"] },
+  "Motivation": { high:["#Motivation","#Inspiration","#Success","#MindSet","#Goals"], mid:["#MotivationalQuotes","#InspirationalContent","#DailyMotivation","#SuccessQuotes","#GrowthMindset"], niche:["#MotivationCreator","#DailyInspiration","#MotivationCommunity","#SuccessTips","#MindsetContent"] },
+  "Parenting & Family": { high:["#Parenting","#Family","#Kids","#Mom","#Dad"], mid:["#ParentingTips","#FamilyContent","#ParentingLife","#KidsContent","#FamilyTime"], niche:["#ParentingCreator","#FamilyCommunity","#ParentingBlog","#KidsActivities","#FamilyLife"] }
+};
+
+const IDEAS = {
+  "Food & Cooking": {
+    UK:["Day 1 🎬 Reel — 'What I eat in a day as a UK foodie' — shows relatable British daily meals, drives saves","Day 2 📸 Photo — Your best-plated dish with a recipe hint in the caption — drives comments asking for the full recipe","Day 3 📊 Poll — 'Sunday roast or Sunday brunch?' — extremely popular debate in the UK, drives shares","Day 4 🎬 Tutorial Reel — Quick 60-second recipe for a popular UK dish — high watch time, strong reach","Day 5 📸 Behind the scenes — Your kitchen, ingredients, prep process — builds personal connection with audience","Day 6 ❓ Question post — 'What is your go-to comfort food in winter?' — UK weather makes this seasonal and shareable","Day 7 📋 Carousel — 'Top 5 easy meals under 20 minutes' — high saves, perfect for busy UK families"],
+    USA:["Day 1 🎬 Reel — 'What I meal prepped this Sunday' — huge trend in USA, drives saves and shares","Day 2 📸 Photo — Comfort food close-up with engaging caption asking followers their favourite — drives comments","Day 3 📊 Poll — 'Tacos or Burgers?' — classic US debate, always gets high engagement","Day 4 🎬 Tutorial — Quick American recipe in under 60 seconds — strong reach on Reels and TikTok","Day 5 📸 Behind the scenes — Kitchen prep, raw ingredients, your cooking space — builds trust and personality","Day 6 ❓ Question — 'What is the best food city in America?' — debate-style posts always drive comments","Day 7 📋 Carousel — 'Top 5 easy weeknight dinners' — saves-heavy content, strong long-term reach"],
+    Pakistan:["Day 1 🎬 Reel — 'Biryani recipe step by step' — highest-performing food content in Pakistan by far","Day 2 📸 Photo — Beautiful street food shot with a question: 'Lahore or Karachi food?' — drives debate comments","Day 3 📊 Poll — 'Nihari or Haleem?' — classic debate loved by Pakistani audience everywhere","Day 4 🎬 Tutorial — Quick traditional Pakistani recipe in 60 seconds — extremely high reach","Day 5 📸 Behind the scenes — Cooking for family, Eid preparation, or traditional desi kitchen setup","Day 6 ❓ Question — 'What is Pakistan's best dish?' — huge comment driver, diaspora audience loves this","Day 7 📋 Carousel — 'Top 5 easy desi recipes for working people' — saves-heavy, very high value for followers"],
+    India:["Day 1 🎬 Reel — 'Street food of Mumbai / Delhi' — highest-performing food content in India, massive reach","Day 2 📸 Photo — Homemade thali plated beautifully with a question about regional preferences","Day 3 📊 Poll — 'North Indian or South Indian food?' — classic India-wide debate, always goes viral","Day 4 🎬 Tutorial — Quick regional Indian recipe in 60 seconds — high watch time, strong algorithm push","Day 5 📸 Behind the scenes — Festival food preparation (Diwali, Eid, Pongal) — very shareable content","Day 6 ❓ Question — 'What is India's most underrated dish?' — passionate answers fill the comments","Day 7 📋 Carousel — 'Top 5 healthy Indian breakfasts' — saves-heavy, strong long-term reach"],
+    Global:["Day 1 🎬 Reel — 'What I eat in a day' format — consistently one of the most-viewed food content formats worldwide","Day 2 📸 Photo — Your most photogenic dish with a recipe teaser in the caption — drives save and follow","Day 3 📊 Poll — Local food debate relevant to your audience — drives comments and shares","Day 4 🎬 Tutorial — Quick recipe in under 60 seconds — optimised for Reels, TikTok, and Shorts","Day 5 📸 Behind the scenes — Kitchen, prep, the mess — builds authentic connection","Day 6 ❓ Question — 'What food reminds you of childhood?' — emotional responses, high share rate","Day 7 📋 Carousel — 'Top 5 quick meals for busy days' — saves-heavy, high long-term reach"]
+  },
+  "Fitness & Health": {
+    UK:["Day 1 🎬 Reel — 'My morning workout routine (20 minutes, no equipment)' — hugely popular in UK, high saves","Day 2 📸 Photo — Progress photo or gym selfie with honest caption about your journey — builds trust","Day 3 📊 Poll — 'Gym or home workout?' — popular UK debate, strong engagement","Day 4 🎬 Tutorial — One exercise explained correctly in 60 seconds — educational content gets strong reach","Day 5 📸 What I eat on a training day — UK fitness audience loves nutrition content paired with workouts","Day 6 ❓ Question — 'What stops you from going to the gym?' — honest replies, high comment rate","Day 7 📋 Carousel — 'Beginner 5-day workout plan' — highest-save type of fitness content on all UK platforms"],
+    USA:["Day 1 🎬 Reel — 'Full body workout in 10 minutes' — consistently top-performing fitness content in USA","Day 2 📸 Transformation or progress post with motivational caption — drives shares and saves","Day 3 📊 Poll — 'Weights or cardio?' — classic debate for US fitness audience","Day 4 🎬 Tutorial — Exercise form tutorial in 60 seconds — educational = strong algorithm reach","Day 5 📸 Meal prep Sunday post showing healthy meals — huge trend in US fitness community","Day 6 ❓ Question — 'What is your fitness goal this year?' — drives comments, helps you understand your audience","Day 7 📋 Carousel — '4-week fitness plan for beginners' — highest-save fitness content format in USA"],
+    Pakistan:["Day 1 🎬 Reel — 'Home workout with no gym equipment' — very popular in Pakistan where home training is common","Day 2 📸 Gym setup or workout photo with motivational Urdu or English caption — strong engagement","Day 3 📊 Poll — 'Morning workout or evening workout?' — simple poll, very high engagement in Pakistan","Day 4 🎬 Tutorial — Correct form for a basic exercise in 60 seconds — educational = strong reach","Day 5 📸 Healthy desi food for fitness — combining Pakistani food culture with health is a big hit","Day 6 ❓ Question — 'What is your biggest fitness challenge?' — honest, relatable answers in comments","Day 7 📋 Carousel — 'Beginner home workout plan for Pakistanis' — saves-heavy, niche and trusted content"],
+    India:["Day 1 🎬 Reel — 'Morning yoga routine for beginners' — yoga content is highest-performing fitness in India","Day 2 📸 Gym or outdoor workout photo with motivational caption in Hindi or English — strong engagement","Day 3 📊 Poll — 'Gym or yoga?' — hugely popular debate across India","Day 4 🎬 Tutorial — Exercise or yoga pose explained correctly in 60 seconds — educational drives reach","Day 5 📸 Healthy Indian food for fitness — combining Indian cuisine with health goals is very popular","Day 6 ❓ Question — 'What motivates you to work out?' — emotional responses, high comment rate","Day 7 📋 Carousel — '7-day beginner workout plan' — saves-heavy, very high long-term reach in India"],
+    Global:["Day 1 🎬 Reel — 'Quick full body workout no equipment needed' — top fitness content globally","Day 2 📸 Progress or transformation post with honest caption — builds connection and drives follows","Day 3 📊 Poll — 'Morning or evening workouts?' — simple, effective poll for all fitness audiences","Day 4 🎬 Tutorial — One exercise done correctly in 60 seconds — educational content gets strong reach","Day 5 📸 Healthy meal prep or nutrition post — fitness + food = always strong engagement","Day 6 ❓ Question — 'What is your #1 fitness tip?' — community-sharing drives strong comment section","Day 7 📋 Carousel — 'Beginner workout plan' — consistently highest-save type of fitness content worldwide"]
+  }
+};
+
+const DEFAULT_IDEAS = {
+  "Fashion & Style": {
+    Global:["Day 1 🎬 Reel — 'Outfit of the week — 7 looks from 5 pieces' — saves-heavy, strong fashion reach","Day 2 📸 OOTD flat lay with product details in caption — drives comments asking where you got items","Day 3 📊 Poll — 'Casual or formal style?' — fashion debate, always gets engagement","Day 4 🎬 Tutorial — 'How to style one item 3 ways' — practical value, strong saves","Day 5 📸 Behind the scenes — Wardrobe, getting ready, styling process — builds personal connection","Day 6 ❓ Question — 'What is your go-to outfit for confidence?' — emotional, shareable responses","Day 7 📋 Carousel — 'Outfit ideas for [season]' — very high saves, long-term reach"]
+  },
+  "Business & Money": {
+    Global:["Day 1 📋 Carousel — '5 habits of successful entrepreneurs' — saves-heavy, very high reach","Day 2 📸 Quote post with a business truth — drives shares and comments","Day 3 🎬 Reel — 'How I made my first sale online' — story format, drives follows","Day 4 📊 Poll — 'Employee or entrepreneur?' — always sparks debate and comments","Day 5 📸 Your workspace or daily routine — behind the scenes of your business journey","Day 6 ❓ Question — 'What is your biggest business challenge right now?' — drives genuine engagement","Day 7 🎬 Tutorial — '3 tips to grow your small business this week' — educational, saves-heavy"]
+  },
+  "Motivation": {
+    Global:["Day 1 📸 Quote post — powerful morning motivation with clean design — shares and saves","Day 2 🎬 Reel — '3 things I do every morning to stay motivated' — high watch time, strong reach","Day 3 📊 Poll — 'Do you set daily goals?' — drives engagement and self-reflection comments","Day 4 📋 Carousel — '5 mindset shifts that changed my life' — saves-heavy, viral potential","Day 5 📸 Personal story post — share a real struggle and lesson — builds deep trust","Day 6 ❓ Question — 'What quote keeps you going on hard days?' — emotional, high comment rate","Day 7 🎬 Tutorial — 'How to build a morning routine in 7 days' — actionable, high saves and follows"]
+  },
+  "Islam & Religion": {
+    Global:["Day 1 📸 Beautiful Quran verse with clean calligraphy design — shares and saves very high","Day 2 📋 Carousel — '5 daily duas every Muslim should know' — extremely saves-heavy content","Day 3 🎬 Reel — Short Islamic reminder in 60 seconds — strong reach in Muslim communities","Day 4 📊 Poll — 'Do you pray all 5 prayers daily?' — honest engagement from Muslim audience","Day 5 📸 Hadith post with simple clean design — always gets strong shares in Islamic community","Day 6 ❓ Question — 'What is your favourite Surah and why?' — passionate, lengthy comments","Day 7 📋 Carousel — 'Islamic morning routine for a blessed day' — very high saves and follows"]
+  }
+};
+
+const CAPTIONS = {
+  "Engagement (Ask a question)": {
+    Facebook:["✨ {topic} — but I want to hear from YOU.\n\nEvery one of us has a different take on this, and that is what makes conversations worth having.\n\nDrop your thoughts in the comments below 👇 I read every single reply.\n\nQ: What has been your experience with {topic}? Let me know! 💬"],
+    Instagram:["✨ {topic} hits different when you really think about it 💭\n\nI have been reflecting on this a lot lately and I would love to know — what is YOUR take?\n\nComment below and let's talk 👇\n\n#Community #ShareYourThoughts #LetsTalk"],
+    TikTok:["POV: you have thoughts about {topic} and need somewhere to put them 😅\n\nComment your honest opinion — no wrong answers, I promise 👇💬"]
+  },
+  "Inspirational Quote": {
+    Facebook:["💫 \"{topic}\"\n\nThink about that for a second. Sometimes the simplest truths hit the hardest.\n\nSave this if it resonates with you and share it with someone who needs to hear it today. 🙏\n\nWhat does this mean to you? Drop a comment below 👇"],
+    Instagram:["💫 {topic}\n\nSometimes all you need is the right words at the right moment.\n\nSave this for when you need it. Tag someone who needs this today 💛\n\n#Motivation #Inspiration #MindsetMatters #DailyQuote"],
+    TikTok:["Just a reminder when things feel hard: {topic} 💫\n\nSave this. You will need it again one day. 🙏 #Motivation #MindsetMatters"]
+  },
+  "Product / Service": {
+    Facebook:["🌟 Introducing {topic}!\n\nWe created this for people who want real results without the complicated process. Whether you are a complete beginner or you have been doing this for years — this is built for you.\n\n✅ Easy to use\n✅ Genuine value\n✅ Community support included\n\nComment 'INFO' below or send us a message to find out more. We would love to help! 💬👇"],
+    Instagram:["🌟 This is {topic} — and it is here to change the way you do things.\n\nBuilt for real people. Designed for real results.\n\nDM us or tap the link in bio to learn more. Limited spots available! 👆\n\n#NewLaunch #MustHave #LevelUp"],
+    TikTok:["Wait until you see what {topic} can do for you 👀 Tap the link in bio to find out more. You will not regret it! 🌟 #MustSee #GameChanger"]
+  },
+  "Behind the Scenes": {
+    Facebook:["📸 Pulling back the curtain on {topic} today!\n\nMost people only see the final result. But here is what goes on behind the scenes — the real work, the small moments, and honestly the chaos that makes it all worth it. 😄\n\nI believe in showing up authentically, not just polished highlights. This is the real thing.\n\nWhat do YOU want to see more of behind the scenes? Let me know! 👇"],
+    Instagram:["📸 Behind the scenes of {topic} 🎬\n\nThe real, unfiltered version. Not everything is perfect and that is exactly the point.\n\nSwipe to see how it all comes together ➡️\n\n#BehindTheScenes #RealLife #Authentic #ContentCreator"],
+    TikTok:["The behind the scenes of {topic} that nobody shows you 👀 Stay real, stay authentic. 📸 #BehindTheScenes #RealTalk"]
+  },
+  "Educational Tip": {
+    Facebook:["💡 Did you know this about {topic}?\n\nI have been learning about this for a while and this tip genuinely changed how I approach things. It is simple, practical, and you can use it starting today.\n\n📌 Save this post so you do not forget it.\n\nHave you tried this? Or do you have your own tip to share? Let us help each other grow — drop it in the comments below 👇"],
+    Instagram:["💡 Quick tip about {topic} that will actually make a difference:\n\nSwipe through for the full breakdown ➡️\n\nSave this so you can come back to it later! 📌\n\nWhat tip would you add? Comment below 👇\n\n#Tips #LearnSomethingNew #Education #GrowthTips"],
+    TikTok:["The {topic} tip that nobody talks about but everyone needs 💡 Save this! You will thank yourself later 📌 #LearnOnTikTok #Tips #DidYouKnow"]
+  },
+  "Funny / Relatable": {
+    Facebook:["😂 Tell me you understand {topic} without telling me you understand it...\n\nI KNOW I am not the only one who has experienced this. Tag someone who will immediately get it 😅\n\nDrop a GIF or emoji in the comments if this is you 👇 Let's make each other laugh today!"],
+    Instagram:["😂 The {topic} struggle is SO real and I refuse to be the only one going through this 😅\n\nTag a friend who gets it immediately 👇 Let us bond over this together.\n\n#Relatable #TooReal #YouGetIt #FunnyBecauseItsTrue"],
+    TikTok:["Nobody is talking about the {topic} situation enough and I need you all to validate me 😅 Tag someone who gets it 👇 #Relatable #TooReal #FunnyBecauseItsTrue"]
+  },
+  "Giveaway / Contest": {
+    Facebook:["🎉 GIVEAWAY TIME! We are giving away {topic} to one lucky person!\n\nTo enter:\n✅ Like this post\n✅ Follow our page\n✅ Tag 2 friends in the comments below\n\nWinner announced in 48 hours! Good luck everyone — share this to spread the word! 🙌\n\n#Giveaway #Contest #WinItWednesday #FreeGift"],
+    Instagram:["🎉 GIVEAWAY — We are giving away {topic}!\n\nTo enter:\n✅ Follow this account\n✅ Like this post\n✅ Tag 2 friends below\n\nWinner announced in 48 hours! Double entry if you share to your Story 🙌\n\n#Giveaway #Contest #Win #FreeStuff"],
+    TikTok:["🎉 GIVEAWAY! Giving away {topic} — to enter: follow, like, and comment your country below! Winner in 48 hours! 🙌 #Giveaway #Win #Contest"]
+  },
+  "Personal Story": {
+    Facebook:["I want to share something personal about {topic} with you today.\n\nFor a long time I did not talk about this. But I have learned that real growth comes from real honesty.\n\nThis experience shaped who I am, taught me more than any textbook ever could, and I genuinely believe someone reading this needs to hear it right now.\n\nIf this resonates with you — drop a heart below or share your own story in the comments. We are all in this together. 💛👇"],
+    Instagram:["Sharing something real about {topic} today 💛\n\nBecause the polished version of things is not always the most helpful.\n\nIf this sounds familiar — you are not alone. Comment below or DM me. Real conversations are what this community is built on.\n\n#RealTalk #Personal #Authentic #Community"],
+    TikTok:["Storytime about {topic} — this is the real version, not the highlight reel 💛 Comment if you can relate. You are definitely not alone in this. #Storytime #RealTalk #Authentic"]
+  }
+};
+
+const BIOS = {
+  "Food & Cooking": {
+    Facebook:["🍽️ Sharing simple, delicious recipes for real people | Cooking tips, meal ideas & food inspiration | New post daily — follow for your next favourite meal! 👇","🍴 Home cook sharing honest food content | Recipes that actually work | Join thousands of food lovers here → Follow us!"],
+    Instagram:["🍽️ Recipes for real kitchens | Simple. Delicious. Honest. | New recipe every day → Follow for daily food inspo! 👇","🍴 Food lover sharing weekly recipes & cooking tips | No fluff, just great food | Tap follow & never run out of ideas!"],
+    TikTok:["🍽️ Quick recipes that actually taste amazing | New food content daily | Follow for your next favourite meal 🍴","🍴 Honest home cooking | Recipes under 60 seconds | Follow & cook with me daily! 👇"],
+    YouTube:["🍽️ Simple recipes for real people | Cooking tutorials, meal ideas & kitchen tips | Subscribe for a new recipe every week! 🎬","🍴 Home cooking channel | Honest, easy recipes anyone can make | Subscribe & cook along with us!"]
+  },
+  "Fitness & Health": {
+    Facebook:["💪 Helping you get fit without the confusion | Workouts, nutrition tips & real motivation | Follow for daily fitness content that actually works!","🏋️ Real fitness for real people | No gimmicks, just results | Join our growing community — follow today! 💪"],
+    Instagram:["💪 Fitness tips & workout routines for every level | Real progress, real results | Follow for daily motivation & workout ideas! 🏋️","🏃 Helping you build a healthier life one day at a time | Workouts, nutrition & mindset | Follow & let's grow together!"],
+    TikTok:["💪 Quick workouts & fitness tips you can actually use | New content daily | Follow for your daily fitness motivation! 🏋️","🏃 Real fitness, zero fluff | Follow me for daily workouts & honest health tips 💪"],
+    YouTube:["💪 Workout tutorials & fitness tips for real results | Subscribe for weekly training videos | Let's get fit together! 🏋️","🏃 Your fitness journey starts here | Workouts, nutrition & motivation | Subscribe & train with me every week!"]
+  }
+};
+
+const BIO_DEFAULT = {
+  "Fashion & Style": { Facebook:["👗 Daily fashion inspo & outfit ideas | Style tips for every body & budget | Follow to upgrade your wardrobe! ✨","✨ Your daily dose of style | OOTD, trends & fashion tips | Follow for outfit ideas you can actually wear!"], Instagram:["👗 OOTD & style tips daily | Fashion for real people | Follow for outfit inspo you'll actually love! ✨","✨ Style creator sharing daily outfit ideas | Real fashion, real budget | Follow & level up your style!"], TikTok:["👗 Daily OOTDs & styling tips | Fashion content that actually helps | Follow for style inspo! ✨","✨ Your style guide in 60 seconds | OOTD every day | Follow for fashion tips that work!"], YouTube:["👗 Weekly fashion hauls, OOTDs & styling tutorials | Subscribe for style inspiration you'll love! ✨","✨ Fashion channel for real people | Outfits, tips & honest reviews | Subscribe for weekly style content!"] },
+  "Travel": { Facebook:["✈️ Sharing travel tips, hidden gems & destination guides | Follow for your next adventure inspiration! 🌍","🌍 Travel creator exploring the world | Destination guides, travel tips & honest reviews | Follow & start planning!"], Instagram:["✈️ Travel tips & destination guides | Helping you explore more for less | Follow for daily travel inspo! 🌍","🌍 Exploring the world one city at a time | Travel guides & hidden gems | Follow for your next adventure!"], TikTok:["✈️ Travel tips in 60 seconds | New destination content daily | Follow for your next adventure inspo! 🌍","🌍 Making travel easier for everyone | Follow for daily travel tips & destination guides ✈️"], YouTube:["✈️ Travel vlogs, destination guides & travel tips | Subscribe for weekly travel content! 🌍","🌍 Your travel guide on YouTube | Honest destination reviews & travel tips | Subscribe for new travel content weekly!"] },
+  "Business & Money": { Facebook:["💼 Helping entrepreneurs grow their business & income | Business tips, mindset & money strategies | Follow for daily value!","💰 Real business advice for real entrepreneurs | Follow for daily tips on growing your income & brand!"], Instagram:["💼 Business tips & entrepreneur mindset | Helping you grow your income online | Follow for daily business value! 💰","💰 Entrepreneur sharing real business strategies | No fluff, just what works | Follow & grow with us!"], TikTok:["💼 Business & money tips in 60 seconds | Daily entrepreneur content | Follow to grow your income! 💰","💰 Real advice for growing your business | Follow for daily business tips that actually work 💼"], YouTube:["💼 Business tutorials, entrepreneur advice & income strategies | Subscribe for weekly business content! 💰","💰 Your guide to building a successful business | Real strategies, real results | Subscribe today!"] },
+  "Islam & Religion": { Facebook:["🌙 Sharing Islamic reminders, Quran verses & daily duas | Follow for content that feeds the soul | Alhamdulillah for this community! 🤲","🤲 Daily Islamic reminders & Quran inspiration | Follow for content that strengthens your faith every day! 🌙"], Instagram:["🌙 Daily Islamic reminders & Quran verses | Feeding souls one post at a time | Follow for daily faith content! 🤲","🤲 Sharing the beauty of Islam every day | Duas, reminders & Quran | Follow & grow your faith with us! 🌙"], TikTok:["🌙 Islamic reminders in 60 seconds | Daily content for Muslim creators | Follow for daily faith content! 🤲","🤲 Sharing Islam with love | Daily Quran & reminders | Follow for your daily Islamic inspiration 🌙"], YouTube:["🌙 Islamic reminders, Quran recitation & daily duas | Subscribe for weekly Islamic content! 🤲","🤲 Your daily Islamic reminder channel | Quran, Hadith & faith content | Subscribe & strengthen your iman!"] },
+  "Motivation": { Facebook:["🔥 Daily motivation & mindset content to help you reach your goals | Follow for the push you need every single day! 💪","💫 Sharing daily motivation, success mindset & life tips | Follow for content that keeps you moving forward! 🔥"], Instagram:["🔥 Daily motivation & mindset tips | Helping you chase your goals every day | Follow for your daily push! 💪","💫 Motivational content & success mindset | Follow for daily inspiration that moves you forward! 🔥"], TikTok:["🔥 Daily motivation in 60 seconds | Follow for the push you need every morning! 💪","💫 Mindset & motivation content | Follow for daily inspiration that actually helps 🔥"], YouTube:["🔥 Motivation, mindset & success tips | Subscribe for weekly content to help you reach your goals! 💪","💫 Your daily motivation channel | Real advice for real growth | Subscribe for weekly inspiration!"] },
+  "Technology": { Facebook:["💻 Sharing tech news, tips & tutorials for everyone | Follow for daily tech content that actually makes sense! 🚀","🚀 Tech made simple | Tips, news & tutorials for every level | Follow for daily technology content! 💻"], Instagram:["💻 Tech tips & tutorials in plain English | Follow for daily tech content! 🚀","🚀 Making technology simple for everyone | Daily tech tips & news | Follow us to stay ahead! 💻"], TikTok:["💻 Tech tips in 60 seconds | Daily tech content | Follow to stay ahead in tech! 🚀","🚀 Making tech simple | Follow for daily tech tips & tutorials 💻"], YouTube:["💻 Tech tutorials, reviews & tips | Subscribe for weekly technology content that helps everyone! 🚀","🚀 Your tech guide on YouTube | Simple tutorials for everyone | Subscribe for new tech content weekly!"] },
+  "Cricket & Sports": { Facebook:["🏏 Daily cricket updates, highlights & analysis | Follow for the latest cricket content! | Pakistan & India cricket covered 🌟","🌟 Cricket fan sharing daily updates, match analysis & player highlights | Follow for all things cricket! 🏏"], Instagram:["🏏 Cricket highlights, updates & fan content | Follow for your daily cricket fix! 🌟","🌟 Covering every cricket moment | Match updates, player stats & fan love | Follow for daily cricket! 🏏"], TikTok:["🏏 Cricket moments in 60 seconds | Daily cricket content | Follow for your cricket fix! 🌟","🌟 Best cricket highlights daily | Follow for cricket content you won't find anywhere else 🏏"], YouTube:["🏏 Cricket highlights, match analysis & player content | Subscribe for weekly cricket videos! 🌟","🌟 Your cricket channel | Match coverage, analysis & fan content | Subscribe for new cricket videos weekly! 🏏"] },
+  "Beauty & Makeup": { Facebook:["💄 Daily beauty tips, makeup tutorials & skincare advice | Follow for honest beauty content that works! ✨","✨ Beauty creator sharing makeup looks, skincare routines & honest product reviews | Follow for daily beauty content! 💄"], Instagram:["💄 Makeup tutorials & skincare tips daily | Follow for beauty content that actually helps! ✨","✨ Beauty & skincare creator | Real reviews, real results | Follow for your daily beauty inspiration! 💄"], TikTok:["💄 Beauty tips in 60 seconds | Daily makeup & skincare content | Follow for your daily glow up! ✨","✨ Honest beauty content | Makeup, skincare & product reviews | Follow for daily beauty tips 💄"], YouTube:["💄 Makeup tutorials, skincare routines & honest product reviews | Subscribe for weekly beauty content! ✨","✨ Your beauty channel | Real tutorials for real people | Subscribe for new beauty videos every week! 💄"] },
+  "Education": { Facebook:["📚 Making learning simple and accessible for everyone | Daily educational tips, facts & study help | Follow to learn something new every day!","🧠 Sharing knowledge that actually matters | Follow for daily educational content, tips & life skills!"], Instagram:["📚 Daily educational tips & facts | Learning made simple | Follow to grow your knowledge every day! 🧠","🧠 Making education interesting | Follow for daily facts, tips & things worth knowing! 📚"], TikTok:["📚 Learn something new in 60 seconds | Daily educational content | Follow to grow smarter every day! 🧠","🧠 Educational tips that actually stick | Follow for daily facts & learning content 📚"], YouTube:["📚 Educational videos that make learning simple | Subscribe for weekly content that grows your knowledge! 🧠","🧠 Your learning channel | Simple, clear explanations of complex topics | Subscribe for new educational content weekly!"] },
+  "Parenting & Family": { Facebook:["👨‍👩‍👧 Real parenting tips & family content | No judgement, just honest help | Follow for daily parenting support! 💛","💛 Sharing honest parenting tips & family moments | Follow for content that makes family life a little easier!"], Instagram:["👨‍👩‍👧 Honest parenting tips & family content | Follow for daily support from a real parent! 💛","💛 Real family life, real tips | Parenting support & family ideas | Follow for your daily parenting inspo!"], TikTok:["👨‍👩‍👧 Honest parenting tips in 60 seconds | Daily family content | Follow for real parenting advice! 💛","💛 Real parenting content | Tips, laughs & family moments | Follow for daily family support 👨‍👩‍👧"], YouTube:["👨‍👩‍👧 Parenting tips, family vlogs & honest advice | Subscribe for weekly family content! 💛","💛 Your parenting channel | Real tips for real families | Subscribe for new family content every week!"] },
+  "Photography": { Facebook:["📷 Daily photography tips, techniques & inspiration | Follow to improve your photography starting today! 🌟","🌟 Photography creator sharing tips, behind-the-scenes & photo inspiration | Follow for daily photography content! 📷"], Instagram:["📷 Photography tips & visual inspiration daily | Follow to improve your photography! 🌟","🌟 Capturing the world one frame at a time | Photography tips & inspiration | Follow for daily photo content! 📷"], TikTok:["📷 Photography tips in 60 seconds | Daily photo content | Follow to shoot better photos today! 🌟","🌟 Making photography simple | Follow for daily tips & visual inspiration 📷"], YouTube:["📷 Photography tutorials, tips & gear reviews | Subscribe for weekly photography content! 🌟","🌟 Your photography guide on YouTube | Tutorials for every level | Subscribe for new photography videos weekly! 📷"] },
+  "Music": { Facebook:["🎵 Sharing music, covers & original songs | Daily music content for music lovers | Follow and let's build something beautiful together! 🎶","🎶 Music creator sharing original music, covers & behind-the-scenes | Follow for daily music content! 🎵"], Instagram:["🎵 Daily music content, covers & original songs | Follow for your daily music fix! 🎶","🎶 Music creator sharing my sound with the world | Follow for new music every week! 🎵"], TikTok:["🎵 New music content daily | Covers, originals & music tips | Follow for your daily music! 🎶","🎶 Sharing music that moves you | Follow for daily original music & covers 🎵"], YouTube:["🎵 Music covers, original songs & music tutorials | Subscribe for new music every week! 🎶","🎶 Your music channel | Original music, covers & behind-the-scenes | Subscribe for weekly music content! 🎵"] },
+  "Comedy & Entertainment": { Facebook:["😂 Daily comedy, relatable content & entertainment | Follow for your daily laugh! | Tag a friend who needs this! 🎭","🎭 Comedy creator making you smile every day | Follow for daily funny, relatable content! 😂"], Instagram:["😂 Daily comedy & relatable content | Follow for your daily laugh! 🎭","🎭 Making people smile one post at a time | Comedy, entertainment & relatable content | Follow! 😂"], TikTok:["😂 Funny content daily | Comedy that hits different | Follow for your daily laugh! 🎭","🎭 Making you smile every single day | Follow for daily comedy & relatable content 😂"], YouTube:["😂 Comedy videos & entertainment content | Subscribe for your weekly dose of laughs! 🎭","🎭 Your entertainment channel | Comedy, skits & relatable content | Subscribe for new videos every week! 😂"] }
+};
+
 const TIPS = {
   posting:[
-    {t:'Post at peak hours',d:'<strong>UK:</strong> 7-9am, 12-2pm, 7-9pm GMT. <strong>USA:</strong> 9-11am, 12-3pm EST. <strong>Pakistan:</strong> 8-10am, 8-10pm PKT. <strong>India:</strong> 8-10am, 7-9pm IST. Posting when your audience is online boosts reach by 40-60%.'},
-    {t:'Post 4-5x per week',d:'Consistency beats volume every time. 4-5 quality posts per week outperform 14 rushed posts. Every platform algorithm rewards regular, predictable posting.'},
-    {t:'Story first, then main post',d:'Post a Story (or short Reel) first to warm up the algorithm. Wait 30 minutes, then post your main feed content. This stacks early engagement and pushes the post to more people.'},
-    {t:'Never delete and repost',d:'Deleting a post resets all its engagement data. Facebook and Instagram penalise this pattern. Always edit instead of deleting — even if the post underperformed.'},
+    {t:"Post at peak hours",d:"🇬🇧 UK: 7–9am, 12–2pm, 7–9pm GMT · 🇺🇸 USA: 9–11am, 1–3pm EST · 🇵🇰 Pakistan: 8–10am, 8–10pm PKT · 🇮🇳 India: 8–10am, 7–9pm IST. Posting at these times can boost reach by 40–60%."},
+    {t:"Post 4–5x per week",d:"Consistency beats volume every time. Four quality posts a week outperform fourteen rushed ones. Every platform algorithm rewards a regular, predictable posting schedule."},
+    {t:"Story first, then main post",d:"Post a Story 30 minutes before your main feed post. This warms up the algorithm and stacks early engagement, pushing your post to more people organically."},
+    {t:"Never delete and repost",d:"Deleting a post resets all its engagement data. Facebook and Instagram penalise this pattern. Always edit instead of deleting — even a low-performing post."}
   ],
   engagement:[
-    {t:'Ask a question in every post',d:'Posts with a question in the caption get <strong>2-3x more comments</strong>. End every caption with a simple question: "What do you think?" or "Drop a 🔥 if you agree." Comments signal value to the algorithm.'},
-    {t:'Reply within the first hour',d:'Replying to every comment in the first 60 minutes after posting can <strong>double your organic reach</strong>. Facebook and Instagram both heavily prioritise posts that have fast, active comment threads.'},
-    {t:'Polls and "This or That" posts',d:'Interactive content (polls, quizzes, "pick one" posts) gets <strong>4x more shares</strong> than regular posts. Run one poll per week on Stories — it costs nothing and trains your audience to engage.'},
-    {t:'Comment on 5 niche pages daily',d:'Leave genuine, helpful comments on 5-10 posts in your niche every single day. Not spam — real replies. Their audience sees your comment and clicks your profile. Free targeted traffic.'},
+    {t:"Ask a question in every post",d:"Posts with a question in the caption get 2–3x more comments. End every caption simply: 'What do you think?' or 'Drop a 🔥 if you agree.' Comments signal value to the algorithm."},
+    {t:"Reply within the first hour",d:"Replying to every comment in the first 60 minutes can double your organic reach. Facebook and Instagram both heavily prioritise posts with fast, active comment threads."},
+    {t:"Use polls and This or That posts",d:"Interactive content gets 4x more shares than static posts. Run one poll on Stories every week — it trains your audience to engage regularly."},
+    {t:"Comment on 5 niche pages daily",d:"Leave genuine, helpful comments on 5–10 posts in your niche every day. Their audience sees your comment and visits your page. This is free targeted traffic most creators ignore."}
   ],
   algorithm:[
-    {t:'Video beats images every time',d:'Short videos (Reels, TikToks, YouTube Shorts) get <strong>3-5x more organic reach</strong> than images. Even a basic 30-second phone video filmed in natural light will outperform a polished graphic post.'},
-    {t:'Share to warm contacts first',d:'Right after posting, DM your post to 5-10 friends or engaged followers. Early shares tell the algorithm your content is worth pushing to a wider audience. This is the most underused free tactic.'},
-    {t:'Use 3-5 targeted hashtags',d:'On Facebook, 3-5 very specific hashtags outperform 30 generic ones. On Instagram, 8-12 is optimal. Choose hashtags where your exact audience is active — niche tags beat mega-popular ones.'},
-    {t:'Never buy followers',d:'Bought followers destroy your engagement rate percentage. 1,000 real, engaged followers is worth more than 100,000 ghost accounts. Low engagement rate also suppresses your reach for real followers.'},
+    {t:"Video beats images every time",d:"Short videos (Reels, TikToks, Shorts) get 3–5x more organic reach than images. Even a basic 30-second phone video filmed in natural light outperforms a polished graphic."},
+    {t:"DM your post to warm contacts first",d:"Right after posting, send it to 5–10 engaged followers via DM. Early shares tell the algorithm your content is worth pushing to a wider audience. The most underused free tactic."},
+    {t:"Use 3–5 targeted hashtags",d:"On Facebook, 3–5 specific hashtags outperform 30 generic ones. On Instagram, 8–12 is optimal. Choose hashtags where your exact audience is active — niche beats mega-popular."},
+    {t:"Never buy followers",d:"Bought followers destroy your engagement rate. 1,000 real followers at 5% engagement is worth far more than 100,000 ghost accounts at 0.1%. Low engagement also suppresses reach for real followers."}
   ],
   growth:[
-    {t:'Collaborate with similar-sized pages',d:'Find 3-5 pages in your niche with a similar follower count. Do a weekly shoutout exchange. Both pages expose themselves to a new, relevant audience — zero cost, real followers gained.'},
-    {t:'Give away a free resource',d:'A free PDF guide, checklist, template, or tip sheet makes people follow and share your page to get it. Value-first content builds trust fast. Ask people to "Follow + Comment to receive" to maximise reach.'},
-    {t:'Pin your most engaging post',d:'Pin your single best-performing post to the top of your profile. New visitors see your most compelling content first — this alone increases follow rate by 15-25%.'},
-    {t:'Cross-promote across all platforms',d:'Post your content everywhere: Facebook, Instagram, TikTok, YouTube Shorts. Each platform algorithm is independent, so the same content gets fresh reach on each. Link all profiles together.'},
+    {t:"Collaborate with similar-sized pages",d:"Find 3–5 pages in your niche with a similar following and do a weekly shoutout exchange. Both pages reach a new, relevant audience with zero cost and real followers gained."},
+    {t:"Give away a free resource",d:"A free PDF guide, checklist, or template makes people follow and share your page. Ask them to Follow + Comment to receive — this maximises both reach and new followers."},
+    {t:"Pin your most engaging post",d:"Pin your single best-performing post to the top of your profile. New visitors see your most compelling content first — this alone can increase follow rate by 15–25%."},
+    {t:"Cross-promote across all platforms",d:"Post your content on Facebook, Instagram, TikTok, and YouTube Shorts. Each platform algorithm is independent, so the same content gets fresh reach everywhere you post it."}
   ]
 };
 
 const SCHEDULES = {
   Facebook:{
-    UK:'Best days: Wednesday, Thursday, Friday\nBest times: 7-9am · 12-2pm · 7-9pm (GMT)\nPost frequency: 4-5 times per week\nTip: Facebook videos under 3 mins get the highest reach in the UK market. Add captions to all videos.',
-    USA:'Best days: Wednesday, Thursday, Friday\nBest times: 9-11am · 1-3pm · 7-9pm (EST)\nPost frequency: 4-5 times per week\nTip: Thursday 1-4pm EST is statistically the strongest Facebook engagement window for US pages.',
-    Pakistan:'Best days: Monday, Wednesday, Friday, Sunday\nBest times: 8-10am · 1-3pm · 8-10pm (PKT)\nPost frequency: 5-6 times per week\nTip: Friday afternoon after Juma prayer is peak traffic time for Pakistani Facebook audience.',
-    India:'Best days: Tuesday, Wednesday, Thursday, Saturday\nBest times: 8-10am · 1-2pm · 7-9pm (IST)\nPost frequency: 5 times per week\nTip: Sunday evenings 7-9pm IST peak for entertainment and lifestyle content in India.'
+    UK:"📅 Best days: Wednesday, Thursday, Friday\n⏰ Best times: 7–9am · 12–2pm · 7–9pm (GMT)\n📊 Frequency: 4–5 posts per week\n💡 Tip: Facebook videos under 3 minutes get the highest reach in the UK. Always add captions to videos.",
+    USA:"📅 Best days: Wednesday, Thursday, Friday\n⏰ Best times: 9–11am · 1–3pm · 7–9pm (EST)\n📊 Frequency: 4–5 posts per week\n💡 Tip: Thursday 1–4pm EST is statistically the peak engagement window for US Facebook pages.",
+    Pakistan:"📅 Best days: Monday, Wednesday, Friday, Sunday\n⏰ Best times: 8–10am · 1–3pm · 8–10pm (PKT)\n📊 Frequency: 5–6 posts per week\n💡 Tip: Friday afternoon after Juma prayer is the highest-traffic time for Pakistani Facebook audience.",
+    India:"📅 Best days: Tuesday, Wednesday, Thursday, Saturday\n⏰ Best times: 8–10am · 1–2pm · 7–9pm (IST)\n📊 Frequency: 5 posts per week\n💡 Tip: Sunday evenings 7–9pm IST are peak for entertainment and lifestyle content in India."
   },
   Instagram:{
-    UK:'Best days: Monday, Tuesday, Thursday\nBest times: 6-8am · 12-1pm · 7-9pm (GMT)\nPost frequency: 4-5 per week + daily Stories\nTip: Reels posted before 9am in UK get 60% more reach than afternoon posts. Use trending audio.',
-    USA:'Best days: Monday, Wednesday, Friday\nBest times: 6-9am · 12-2pm (EST)\nPost frequency: 4-5 per week + daily Stories\nTip: Wednesday 11am-1pm EST is peak Instagram engagement for US audiences across most niches.',
-    Pakistan:'Best days: Monday, Wednesday, Friday, Saturday\nBest times: 9-11am · 8-10pm (PKT)\nPost frequency: 5-6 per week + daily Stories\nTip: Evening Reels 8-10pm PKT dominate Instagram reach for Pakistani creators consistently.',
-    India:'Best days: Wednesday, Thursday, Friday, Sunday\nBest times: 9-11am · 7-9pm (IST)\nPost frequency: 5 per week + daily Stories\nTip: Sunday Reels in India get highest saves and shares, especially in food and entertainment niches.'
+    UK:"📅 Best days: Monday, Tuesday, Thursday\n⏰ Best times: 6–8am · 12–1pm · 7–9pm (GMT)\n📊 Frequency: 4–5 posts/week + daily Stories\n💡 Tip: Reels posted before 9am in the UK get 60% more reach than afternoon posts.",
+    USA:"📅 Best days: Monday, Wednesday, Friday\n⏰ Best times: 6–9am · 12–2pm (EST)\n📊 Frequency: 4–5 posts/week + daily Stories\n💡 Tip: Wednesday 11am–1pm EST is peak Instagram engagement for US audiences across most niches.",
+    Pakistan:"📅 Best days: Monday, Wednesday, Friday, Saturday\n⏰ Best times: 9–11am · 8–10pm (PKT)\n📊 Frequency: 5–6 posts/week + daily Stories\n💡 Tip: Evening Reels at 8–10pm PKT consistently dominate Instagram reach for Pakistani creators.",
+    India:"📅 Best days: Wednesday, Thursday, Friday, Sunday\n⏰ Best times: 9–11am · 7–9pm (IST)\n📊 Frequency: 5 posts/week + daily Stories\n💡 Tip: Sunday Reels in India get the highest saves and shares, especially in food and entertainment."
   },
   TikTok:{
-    UK:'Best days: Tuesday, Thursday, Friday\nBest times: 7-9am · 12-3pm · 7-9pm (GMT)\nPost frequency: 1-3 times per day\nTip: Hook viewers in the first 2 seconds — TikTok measures watch time from frame 1. Start mid-action.',
-    USA:'Best days: Tuesday, Thursday, Friday\nBest times: 6-8am · 10am-12pm · 7-9pm (EST)\nPost frequency: 1-3 times per day\nTip: Thursday 7pm EST consistently outperforms all other US TikTok posting slots across categories.',
-    Pakistan:'Best days: Monday to Friday, Saturday evening\nBest times: 8-10am · 9-11pm (PKT)\nPost frequency: 2-3 times per day\nTip: Night-time TikTok (9-11pm PKT) dominates engagement for the Pakistani audience significantly.',
-    India:'Best days: Monday, Wednesday, Friday, Saturday, Sunday\nBest times: 7-9am · 7-10pm (IST)\nPost frequency: 2-3 times per day\nTip: Dance, comedy, and everyday life content consistently trends in Indian Reels and TikTok.'
+    UK:"📅 Best days: Tuesday, Thursday, Friday\n⏰ Best times: 7–9am · 12–3pm · 7–9pm (GMT)\n📊 Frequency: 1–3 videos per day\n💡 Tip: Hook viewers in the first 2 seconds — TikTok measures watch time from frame 1. Start mid-action.",
+    USA:"📅 Best days: Tuesday, Thursday, Friday\n⏰ Best times: 6–8am · 10am–12pm · 7–9pm (EST)\n📊 Frequency: 1–3 videos per day\n💡 Tip: Thursday 7pm EST consistently outperforms all other US TikTok posting slots across all categories.",
+    Pakistan:"📅 Best days: Monday–Friday, Saturday evening\n⏰ Best times: 8–10am · 9–11pm (PKT)\n📊 Frequency: 2–3 videos per day\n💡 Tip: Night-time TikTok (9–11pm PKT) dominates engagement for the Pakistani audience significantly.",
+    India:"📅 Best days: Monday, Wednesday, Friday, Saturday, Sunday\n⏰ Best times: 7–9am · 7–10pm (IST)\n📊 Frequency: 2–3 videos per day\n💡 Tip: Dance, comedy, and everyday life content consistently trends in Indian Reels and TikTok."
   },
   YouTube:{
-    UK:'Best days: Thursday, Friday, Saturday\nBest times: 2-4pm · 6-8pm (GMT)\nPost frequency: 1-2 per week\nTip: YouTube Shorts posted Thursday or Friday consistently get the highest first-48-hour UK views.',
-    USA:'Best days: Friday, Saturday, Sunday\nBest times: 2-4pm · 5-8pm (EST)\nPost frequency: 1-2 per week\nTip: Friday 3-5pm EST is peak click-through time for YouTube across entertainment and education niches.',
-    Pakistan:'Best days: Friday, Saturday, Sunday\nBest times: 6-8pm · 9-11pm (PKT)\nPost frequency: 1-2 per week\nTip: Weekend evenings dominate YouTube in Pakistan. Educational and comedy content leads all categories.',
-    India:'Best days: Saturday, Sunday (Thursday also strong)\nBest times: 7-9pm (IST)\nPost frequency: 1-2 per week\nTip: Hindi and regional language content gets 3x more organic reach in Indian YouTube. Use subtitles.'
+    UK:"📅 Best days: Thursday, Friday, Saturday\n⏰ Best times: 2–4pm · 6–8pm (GMT)\n📊 Frequency: 1–2 videos per week\n💡 Tip: YouTube Shorts posted on Thursday or Friday get the highest first-48-hour UK view counts.",
+    USA:"📅 Best days: Friday, Saturday, Sunday\n⏰ Best times: 2–4pm · 5–8pm (EST)\n📊 Frequency: 1–2 videos per week\n💡 Tip: Friday 3–5pm EST is peak click-through time for YouTube in the US across most categories.",
+    Pakistan:"📅 Best days: Friday, Saturday, Sunday\n⏰ Best times: 6–8pm · 9–11pm (PKT)\n📊 Frequency: 1–2 videos per week\n💡 Tip: Weekend evenings dominate YouTube in Pakistan. Educational and comedy content leads all categories.",
+    India:"📅 Best days: Saturday, Sunday (Thursday also strong)\n⏰ Best times: 7–9pm (IST)\n📊 Frequency: 1–2 videos per week\n💡 Tip: Hindi and regional language content gets 3x more organic reach in Indian YouTube. Add subtitles."
   }
 };
 
 const TASKS = [
-  'Post today\'s planned content at the right peak time',
-  'Reply to all comments within 1 hour of posting',
-  'Leave genuine comments on 5 posts in your niche',
-  'Post 1 Story or short video today',
-  'Check your insights — note what performed best',
-  'Follow or connect with 3 relevant accounts in your niche',
-  'Share your post to a relevant group or community',
-  'Plan tomorrow\'s content before you sleep'
+  "Post today's content at the right peak time for your region",
+  "Reply to all comments within 1 hour of posting",
+  "Leave genuine comments on 5 posts in your niche",
+  "Post 1 Story or short video today",
+  "Check your page insights and note what performed best",
+  "Follow or connect with 3 relevant accounts in your niche",
+  "Share your post to a relevant group or community",
+  "Plan tomorrow's content before you sleep"
 ];
 
+// ===================== CHECKLIST =====================
 let checks = Array(TASKS.length).fill(false);
-
 function buildChecklist(){
-  const el = document.getElementById('checklist');
-  el.innerHTML = TASKS.map((item,i)=>`
-    <div class="check-item" onclick="toggleCheck(${i})">
-      <div class="chk${checks[i]?' done':''}" id="chk${i}">
-        ${checks[i]?'<span style="font-size:11px;color:#030C06;font-weight:900">✓</span>':''}
-      </div>
-      <div class="check-text${checks[i]?' done':''}" id="ct${i}">${item}</div>
+  const el=document.getElementById('checklist');
+  el.innerHTML=TASKS.map((t,i)=>`
+    <div class="ci" onclick="toggleCheck(${i})">
+      <div class="chk${checks[i]?' on':''}" id="chk${i}">${checks[i]?'✓':''}</div>
+      <div class="ct${checks[i]?' done':''}" id="ct${i}">${t}</div>
     </div>`).join('');
-  updateMeter();
-}
-
-function toggleCheck(i){
-  checks[i]=!checks[i];
-  buildChecklist();
-}
-
-function updateMeter(){
   const done=checks.filter(Boolean).length;
   const pct=Math.round(done/checks.length*100);
-  document.getElementById('meter-fill').style.width=pct+'%';
-  document.getElementById('meter-label').textContent=`${done} / ${checks.length} tasks complete — ${pct}%`;
+  document.getElementById('mfill').style.width=pct+'%';
+  document.getElementById('mlbl').textContent=`${done} / ${checks.length} tasks complete — ${pct}%`;
 }
+function toggleCheck(i){checks[i]=!checks[i];buildChecklist()}
 
+// ===================== TIPS =====================
 function showTips(key,el){
-  document.querySelectorAll('.tip-box').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
+  document.querySelectorAll('.tip-box').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
   const panel=document.getElementById('tips-panel');
-  panel.className='tips-content show';
   panel.innerHTML=TIPS[key].map((item,i)=>`
-    <div class="tip-item">
-      <div class="tip-num">0${i+1}</div>
-      <div class="tip-text"><strong>${item.t}</strong><br>${item.d}</div>
+    <div class="titem">
+      <div class="tnum">0${i+1}</div>
+      <div class="ttext"><b>${item.t}</b><br>${item.d}</div>
     </div>`).join('');
 }
 
+// ===================== SCHEDULE =====================
 function updateSchedule(){
-  const p=document.getElementById('sch-platform').value;
-  const r=document.getElementById('sch-region').value;
-  document.getElementById('out-schedule').textContent=SCHEDULES[p]?.[r]||'Select platform and region above.';
+  const p=document.getElementById('sch-p').value;
+  const r=document.getElementById('sch-r').value;
+  document.getElementById('out-schedule').textContent=SCHEDULES[p]?.[r]||'';
 }
 
+// ===================== COPY =====================
 function copyText(text){
   navigator.clipboard.writeText(text).then(()=>{
     const t=document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'),2200);
+    t.classList.add('on');
+    setTimeout(()=>t.classList.remove('on'),2000);
+  }).catch(()=>{
+    // fallback
+    const ta=document.createElement('textarea');
+    ta.value=text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const t=document.getElementById('toast');
+    t.classList.add('on');
+    setTimeout(()=>t.classList.remove('on'),2000);
   });
 }
-
-async function runTool(tool,btn){
-  const prompts={
-    hashtag:()=>{
-      const niche=document.getElementById('hash-niche').value.trim();
-      const platform=document.getElementById('hash-platform').value;
-      const region=document.getElementById('hash-region').value;
-      if(!niche)return null;
-      return `You are a social media growth expert specialising in organic reach.\n\nPlatform: ${platform}\nNiche: ${niche}\nRegion: ${region}\n\nGenerate the best hashtags for maximum organic reach. Provide:\n1. 5 HIGH-REACH hashtags (millions of posts — broad awareness)\n2. 5 MID-RANGE hashtags (100k-1M posts — targeted audience)\n3. 5 NICHE hashtags (under 100k posts — highly engaged community)\n4. One specific tip for using hashtags on ${platform} in ${region}\n\nBe practical and specific to the niche and region. Format clearly.`;
-    },
-    ideas:()=>{
-      const niche=document.getElementById('idea-niche').value.trim();
-      const region=document.getElementById('idea-region').value;
-      if(!niche)return null;
-      return `You are a content strategist specialising in organic social media growth.\n\nPage niche: ${niche}\nTarget region: ${region}\n\nCreate a practical 7-day content calendar. For each day provide:\n- Day number and post type (Reel, image, poll, story, etc.)\n- Specific post idea (actionable and detailed, not vague)\n- Why this will perform well with the ${region} audience\n\nBe culturally relevant and specific to ${region}. Keep each day concise but useful.`;
-    },
-    caption:()=>{
-      const topic=document.getElementById('cap-topic').value.trim();
-      const tone=document.getElementById('cap-tone').value;
-      const platform=document.getElementById('cap-platform').value;
-      if(!topic)return null;
-      return `Write a ${tone} caption for a ${platform} post.\n\nPost topic: ${topic}\n\nRequirements:\n- Strong hook in the first line that stops the scroll\n- 3-5 sentences of genuine value or emotion\n- End with a question or call-to-action to drive comments\n- 3-5 natural emojis\n- Sound human and authentic, not robotic\n\nWrite one complete, ready-to-post caption. No explanations or preamble.`;
-    },
-    bio:()=>{
-      const about=document.getElementById('bio-input').value.trim();
-      const platform=document.getElementById('bio-platform').value;
-      if(!about)return null;
-      return `Write an optimised ${platform} profile bio for this creator:\n\nPage description: ${about}\n\nRequirements:\n- Under 150 characters\n- Clearly states the value the page gives visitors\n- 1-2 relevant emojis\n- Ends with a soft call-to-action (Follow for..., Join us...)\n- Sounds human and genuine\n\nWrite 2 versions: one professional, one more casual and friendly. Label them clearly.`;
-    }
-  };
-
-  const p=prompts[tool]();
-  if(!p){alert('Please fill in the field above first.');return;}
-
-  const outEl=document.getElementById('out-'+tool);
-  outEl.className='output loading show';
-  outEl.innerHTML='<div class="dots"><span></span><span></span><span></span></div>&nbsp; AI is writing...';
-  btn.disabled=true;
-
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        messages:[{role:'user',content:p}]
-      })
-    });
-    const data=await res.json();
-    const text=data.content?.find(b=>b.type==='text')?.text||'No response. Please try again.';
-    outEl.className='output show';
-    const safe=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
-    outEl.innerHTML=`<button class="copy-btn" onclick="copyText(document.getElementById('out-${tool}').innerText.replace('Copy to clipboard','').trim())">Copy</button>${safe}`;
-  }catch(e){
-    outEl.className='output show';
-    outEl.textContent='Connection error. Please try again.';
-  }
-  btn.disabled=false;
+function showOut(id,html){
+  const el=document.getElementById(id);
+  el.innerHTML=html;
+  el.classList.add('show');
 }
 
-// INIT
+// ===================== HASHTAG GENERATOR =====================
+function generateHashtags(){
+  const niche=document.getElementById('hash-niche').value;
+  const platform=document.getElementById('hash-platform').value;
+  const region=document.getElementById('hash-region').value;
+  if(!niche){alert('Please select your niche first!');return;}
+  
+  let data=null;
+  if(HASHTAGS[niche]&&HASHTAGS[niche][platform]&&HASHTAGS[niche][platform][region]){
+    data=HASHTAGS[niche][platform][region];
+  } else if(HASHTAGS[niche]&&HASHTAGS[niche][platform]&&HASHTAGS[niche][platform]['Global']){
+    data=HASHTAGS[niche][platform]['Global'];
+  } else {
+    const def=DEFAULT_HASH[niche];
+    if(def){data={high:def.high,mid:def.mid,niche:def.niche};}
+    else{data={high:["#"+niche.replace(/\s/g,''),"#Viral","#Content","#Social","#Trending"],mid:["#"+niche.replace(/\s/g,'')+"Tips","#"+niche.replace(/\s/g,'')+"Content","#Creator","#Community","#Growth"],niche:["#"+niche.replace(/\s/g,'')+"Community","#"+niche.replace(/\s/g,'')+"Creator","#NicheContent","#SmallCreator","#GrowWithUs"]};}
+  }
+  
+  const tip=getTip(platform,region);
+  const chips=arr=>arr.map(h=>`<span class="tag-chip" onclick="copyText('${h}')">${h}</span>`).join('');
+  const html=`<button class="cp" onclick="copyText(document.getElementById('out-hashtag').innerText.replace('Copy All','').replace('Copy','').trim())">Copy All</button>
+<b style="color:var(--g)">🔴 HIGH REACH (Broad Awareness)</b>
+${chips(data.high)}
+
+<b style="color:var(--g)">🟡 MID RANGE (Targeted Audience)</b>
+${chips(data.mid)}
+
+<b style="color:var(--g)">🟢 NICHE (Highly Engaged)</b>
+${chips(data.niche)}
+
+<b style="color:var(--g)">💡 ${platform} Tip:</b> ${tip}`;
+  showOut('out-hashtag',html);
+}
+
+function getTip(platform,region){
+  const tips={
+    Facebook:{UK:"Use 3–5 hashtags max. Facebook rewards niche hashtags over popular ones for UK pages.",USA:"Post hashtags in the first comment, not the caption — US Facebook pages see higher reach this way.",Pakistan:"Mix Urdu keywords with English hashtags for maximum reach with the Pakistani audience.",India:"Use regional language keywords alongside English hashtags for broader Indian reach."},
+    Instagram:{UK:"8–12 hashtags is the UK Instagram sweet spot. Mix all three tiers in every post.",USA:"Use the 'Recent' tab to verify your hashtags are active before using them for US content.",Pakistan:"Urdu hashtags like #پاکستان get strong engagement — combine with English for maximum reach.",India:"Hindi hashtags alongside English ones double your potential Indian Instagram audience significantly."},
+    TikTok:{UK:"On TikTok UK, 3–5 hashtags in the caption is optimal. More than 10 can actually reduce reach.",USA:"TikTok USA prioritises watch time over hashtags. Use trending sounds alongside your hashtags.",Pakistan:"TikTok Pakistan algorithm favours local language content — add Urdu text to all videos.",India:"TikTok/Reels India rewards regional language content. Add Hindi text overlays for maximum reach."},
+    YouTube:{UK:"Add hashtags in your video description, not the title. YouTube UK favours description hashtags.",USA:"Use 3 hashtags max in YouTube titles — more gets filtered as spam by the US YouTube algorithm.",Pakistan:"YouTube Pakistan: Urdu titles get dramatically more search traffic than English-only titles.",India:"Hindi keywords in title and description dramatically improve your YouTube search reach in India."}
+  };
+  return (tips[platform]&&tips[platform][region])?tips[platform][region]:"Use a mix of all three tiers — high reach for awareness, niche for genuine community engagement.";
+}
+
+// ===================== IDEAS GENERATOR =====================
+function generateIdeas(){
+  const niche=document.getElementById('idea-niche').value;
+  const region=document.getElementById('idea-region').value;
+  if(!niche){alert('Please select your niche first!');return;}
+  
+  let days=null;
+  if(IDEAS[niche]&&IDEAS[niche][region]){days=IDEAS[niche][region];}
+  else if(IDEAS[niche]&&IDEAS[niche]['Global']){days=IDEAS[niche]['Global'];}
+  else if(DEFAULT_IDEAS[niche]&&DEFAULT_IDEAS[niche]['Global']){days=DEFAULT_IDEAS[niche]['Global'];}
+  else{
+    days=[
+      `Day 1 🎬 Reel — 'My journey with ${niche}' — personal story format, highest engagement type for any niche`,
+      `Day 2 📸 Photo — Your best work or result with a question in the caption — drives comments from ${region} audience`,
+      `Day 3 📊 Poll — Ask your audience to choose between two options related to ${niche} — simple, high engagement`,
+      `Day 4 🎬 Tutorial — Share your top tip for ${niche} in 60 seconds — educational content gets strong algorithm reach`,
+      `Day 5 📸 Behind the scenes — Show your process, workspace, or preparation — builds trust and authenticity`,
+      `Day 6 ❓ Question — Ask your ${region} audience what they struggle with most in ${niche} — use answers for future content`,
+      `Day 7 📋 Carousel — 'Top 5 tips for ${niche} beginners' — highest-save content format, strong long-term organic reach`
+    ];
+  }
+  const html=`<button class="cp" onclick="copyText(document.getElementById('out-ideas').innerText.replace('Copy','').trim())">Copy</button>`+days.map(d=>`• ${d}`).join('\n\n');
+  showOut('out-ideas',html);
+}
+
+// ===================== CAPTION GENERATOR =====================
+function generateCaption(){
+  const type=document.getElementById('cap-type').value;
+  const platform=document.getElementById('cap-platform').value;
+  const topic=document.getElementById('cap-topic').value.trim()||'this topic';
+  
+  let templates=CAPTIONS[type]&&CAPTIONS[type][platform]?CAPTIONS[type][platform]:CAPTIONS[type]&&CAPTIONS[type]['Facebook']?CAPTIONS[type]['Facebook']:["✨ {topic}\n\nWhat do you think about this? Drop your thoughts in the comments below 👇\n\nShare this with someone who needs to see it today! 🙌"];
+  const t=templates[Math.floor(Math.random()*templates.length)];
+  const filled=t.replace(/\{topic\}/g,topic);
+  const html=`<button class="cp" onclick="copyText(document.getElementById('out-caption').innerText.replace('Copy','').trim())">Copy</button>${filled}`;
+  showOut('out-caption',html);
+}
+
+// ===================== BIO GENERATOR =====================
+function generateBio(){
+  const niche=document.getElementById('bio-niche').value;
+  const platform=document.getElementById('bio-platform').value;
+  if(!niche){alert('Please select your niche first!');return;}
+  
+  let bios=null;
+  if(BIOS[niche]&&BIOS[niche][platform]){bios=BIOS[niche][platform];}
+  else if(BIO_DEFAULT[niche]&&BIO_DEFAULT[niche][platform]){bios=BIO_DEFAULT[niche][platform];}
+  else{bios=[`✨ ${niche} content creator | Daily tips, inspiration & community | Follow to grow with us every day! 🌟`,`🌟 Sharing the best ${niche} content daily | Tips, tutorials & real community | Follow for daily value! ✨`];}
+  
+  const html=`<button class="cp" onclick="copyText(document.getElementById('out-bio').innerText.replace('Copy','').trim())">Copy</button><b style="color:var(--g)">Option 1 — Professional:</b>\n${bios[0]}\n\n<b style="color:var(--g)">Option 2 — Casual & Friendly:</b>\n${bios[1]||bios[0]}`;
+  showOut('out-bio',html);
+}
+
+// ===================== INIT =====================
 buildChecklist();
-showTips('posting',document.getElementById('tip-posting'));
+showTips('posting',document.getElementById('tb-posting'));
 updateSchedule();
 </script>
 </body>
